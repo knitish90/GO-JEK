@@ -10,6 +10,9 @@ import Foundation
 
 typealias networkCompletionHandler = ((_ data : Data?, _ error : Error?)-> Void)
 
+typealias Parameters = [String: String]
+public typealias Headers    = [String: Any]?
+
 enum ResponseType {
     case success, fail
 }
@@ -24,14 +27,20 @@ struct HTTPClient : HTTPClientProtocol {
     
     private let session : URLSession
     
-    init(session : URLSession) {
+    init(session : URLSession = URLSession.shared) {
         self.session = session
     }
     
     func getData(urlString: String, completion:@escaping (Data?, Error?) -> Void) {
-        var request = URLRequest(url: URL(fileURLWithPath: urlString))
+       
+        guard let url = URLEncoder().encodeUrl(urlString, [:]) else {
+            completion(nil,nil)
+            return
+        }
+
+        var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.GET.rawValue
-        
+
         session.dataTask(with: request) { (data, response, error) in
             completion(data,error)
         }.resume()

@@ -19,7 +19,7 @@ protocol ContactDataBaseProtocol {
     var phone       : String {get set}
 }
 
-struct Contact: Encodable {
+struct Contact: Codable {
     let id: Int
     let firstName, lastName, email, phoneNumber: String
     let profilePic: String
@@ -44,5 +44,28 @@ struct Contact: Encodable {
         case isFavorite =   "favorite"
         case createdAt  =   "created_at"
         case updatedAt  =   "updated_at"
+    }
+    
+    
+    init(from decoder: Decoder) throws {
+        let container       =   try decoder.container(keyedBy: CodingKeys.self)
+        self.id             =   try container.parse(with: .id, defaultValue: 0)
+        self.firstName      =   try container.parse(with: .firstName, defaultValue: "")
+        self.lastName       =   try container.parse(with: .lastName, defaultValue: "")
+        self.email          =   try container.parse(with: .email, defaultValue: "")
+        self.phoneNumber    =   try container.parse(with: .phoneNumber, defaultValue: "")
+        self.profilePic     =   try container.parse(with: .profilePic, defaultValue: "")
+        self.isFavorite     =   try container.parse(with: .isFavorite, defaultValue: false)
+        self.createdAt      =   try container.parse(with: .createdAt, defaultValue: "" )
+        self.updatedAt      =   try container.parse(with: .updatedAt, defaultValue: "")
+        
+    }
+}
+
+
+extension KeyedDecodingContainer {
+    func parse<T>(with key: K, defaultValue: T) throws -> T
+        where T : Decodable {
+            return try decodeIfPresent(T.self, forKey: key) ?? defaultValue
     }
 }

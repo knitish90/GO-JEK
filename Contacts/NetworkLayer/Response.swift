@@ -20,9 +20,10 @@ struct Response : ResponseProtocol {
         var response : T?
         if error == nil {
             do {
-             response = try JSONDecoder().decode(T.self, from: data!)
+                response = try JSONDecoder().decode(T.self, from: data!)
+                completion(response, nil)
             } catch let error  {
-                completion(response, error)
+                completion(nil, error)
             }
         }
     }

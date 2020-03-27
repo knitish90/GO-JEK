@@ -23,6 +23,9 @@ struct ContactListViewModel : ContactListViewModelProtocol {
     var didContactsLoaded: (() -> Void)?
     
     var service : ContactServiceProtocol
+    var tableDataSource = [ContactListCellViewModel]()
+    
+    
     init(service: ContactServiceProtocol) {
         self.service = service
     }
@@ -32,7 +35,7 @@ struct ContactListViewModel : ContactListViewModelProtocol {
     }
     
     func fetchContacts() {
-        service.getContacts { (error, contactList) in
+        self.service.getContacts { (error, contactList) in
             if error == nil {
                 self.didContactsLoaded?()
             }else {

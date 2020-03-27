@@ -24,7 +24,9 @@ struct ContactService : ContactServiceProtocol {
     
     func getContacts(completion: @escaping (Error?, [Contact]) -> Void) {
         httpClient.getData(urlString: EndPoint.Contacts.getContacts) { (data, error) in
-            
+            Response().parseResponse(data, error) { (contactList, error) in
+                completion(error,contactList ?? [])
+            }
         }
     }
 }
