@@ -26,6 +26,10 @@
 		01657F34242DEE6B0013A149 /* CellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F33242DEE6B0013A149 /* CellHelper.swift */; };
 		01657F36242DFFC90013A149 /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F35242DFFC90013A149 /* URLCoder.swift */; };
 		01657F38242E05A60013A149 /* ContactListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F37242E05A60013A149 /* ContactListCellViewModel.swift */; };
+		01657F3A242E06E20013A149 /* ContactListViewModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F39242E06E20013A149 /* ContactListViewModel+Extension.swift */; };
+		01657F3C242E080E0013A149 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F3B242E080E0013A149 /* Section.swift */; };
+		01657F3E242E10790013A149 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F3D242E10790013A149 /* Extension.swift */; };
+		01657F40242E290E0013A149 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F3F242E290E0013A149 /* ImageDownloader.swift */; };
 		01F51CE0242DD60D001A7503 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F51CDF242DD60D001A7503 /* Response.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +76,10 @@
 		01657F33242DEE6B0013A149 /* CellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHelper.swift; sourceTree = "<group>"; };
 		01657F35242DFFC90013A149 /* URLCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCoder.swift; sourceTree = "<group>"; };
 		01657F37242E05A60013A149 /* ContactListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListCellViewModel.swift; sourceTree = "<group>"; };
+		01657F39242E06E20013A149 /* ContactListViewModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactListViewModel+Extension.swift"; sourceTree = "<group>"; };
+		01657F3B242E080E0013A149 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		01657F3D242E10790013A149 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		01657F3F242E290E0013A149 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		01F51CDF242DD60D001A7503 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				013C9AEC242DA3CE00785A3F /* ContactListViewModel.swift */,
+				01657F39242E06E20013A149 /* ContactListViewModel+Extension.swift */,
+				01657F3B242E080E0013A149 /* Section.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -239,6 +249,8 @@
 		013C9ADE242D958B00785A3F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				01657F3D242E10790013A149 /* Extension.swift */,
+				01657F3F242E290E0013A149 /* ImageDownloader.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -487,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01657F3C242E080E0013A149 /* Section.swift in Sources */,
 				01657F38242E05A60013A149 /* ContactListCellViewModel.swift in Sources */,
 				013C9AA9242D92B400785A3F /* ContactListViewController.swift in Sources */,
 				013C9AED242DA3CE00785A3F /* ContactListViewModel.swift in Sources */,
@@ -494,10 +507,13 @@
 				013C9AEF242DA3E500785A3F /* Contact.swift in Sources */,
 				01657F30242DEB8D0013A149 /* ContactListCell.swift in Sources */,
 				01657F34242DEE6B0013A149 /* CellHelper.swift in Sources */,
+				01657F40242E290E0013A149 /* ImageDownloader.swift in Sources */,
 				01F51CE0242DD60D001A7503 /* Response.swift in Sources */,
+				01657F3E242E10790013A149 /* Extension.swift in Sources */,
 				013C9AA5242D92B400785A3F /* AppDelegate.swift in Sources */,
 				013C9AF3242DA58400785A3F /* EndPoint.swift in Sources */,
 				013C9AA7242D92B400785A3F /* SceneDelegate.swift in Sources */,
+				01657F3A242E06E20013A149 /* ContactListViewModel+Extension.swift in Sources */,
 				015BBB10242DBA5300C166C1 /* Request.swift in Sources */,
 				013C9AF5242DA59C00785A3F /* NetworkHandler.swift in Sources */,
 				01657F32242DEBA60013A149 /* ContactListSectionHeaderCell.swift in Sources */,
