@@ -15,6 +15,11 @@
 		013C9AB1242D92B500785A3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 013C9AAF242D92B500785A3F /* LaunchScreen.storyboard */; };
 		013C9ABC242D92B600785A3F /* ContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9ABB242D92B600785A3F /* ContactsTests.swift */; };
 		013C9AC7242D92B600785A3F /* ContactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AC6242D92B600785A3F /* ContactsUITests.swift */; };
+		013C9AED242DA3CE00785A3F /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AEC242DA3CE00785A3F /* ContactListViewModel.swift */; };
+		013C9AEF242DA3E500785A3F /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AEE242DA3E500785A3F /* Contact.swift */; };
+		013C9AF1242DA57800785A3F /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AF0242DA57800785A3F /* ContactService.swift */; };
+		013C9AF3242DA58400785A3F /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AF2242DA58400785A3F /* EndPoint.swift */; };
+		013C9AF5242DA59C00785A3F /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AF4242DA59C00785A3F /* NetworkHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		013C9AC2242D92B600785A3F /* ContactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		013C9AC6242D92B600785A3F /* ContactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsUITests.swift; sourceTree = "<group>"; };
 		013C9AC8242D92B600785A3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		013C9AEC242DA3CE00785A3F /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
+		013C9AEE242DA3E500785A3F /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		013C9AF0242DA57800785A3F /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
+		013C9AF2242DA58400785A3F /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		013C9AF4242DA59C00785A3F /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +165,7 @@
 		013C9AD6242D931F00785A3F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				013C9AEE242DA3E500785A3F /* Contact.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +173,7 @@
 		013C9AD7242D931F00785A3F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				013C9AEC242DA3CE00785A3F /* ContactListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -253,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				013C9AE3242D962700785A3F /* Services */,
+				013C9AF2242DA58400785A3F /* EndPoint.swift */,
+				013C9AF4242DA59C00785A3F /* NetworkHandler.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -260,6 +274,7 @@
 		013C9AE3242D962700785A3F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				013C9AF0242DA57800785A3F /* ContactService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -452,8 +467,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				013C9AA9242D92B400785A3F /* ContactListViewController.swift in Sources */,
+				013C9AED242DA3CE00785A3F /* ContactListViewModel.swift in Sources */,
+				013C9AF1242DA57800785A3F /* ContactService.swift in Sources */,
+				013C9AEF242DA3E500785A3F /* Contact.swift in Sources */,
 				013C9AA5242D92B400785A3F /* AppDelegate.swift in Sources */,
+				013C9AF3242DA58400785A3F /* EndPoint.swift in Sources */,
 				013C9AA7242D92B400785A3F /* SceneDelegate.swift in Sources */,
+				013C9AF5242DA59C00785A3F /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
