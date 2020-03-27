@@ -99,8 +99,9 @@
 		013C9AA3242D92B400785A3F /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				013C9AD5242D92F100785A3F /* ContactDetail */,
-				013C9AD4242D92F100785A3F /* ContactList */,
+				013C9ADE242D958B00785A3F /* Common */,
+				013C9AE2242D960800785A3F /* NetworkLayer */,
+				013C9ADF242D95A200785A3F /* Modules */,
 				013C9AA4242D92B400785A3F /* AppDelegate.swift */,
 				013C9AA6242D92B400785A3F /* SceneDelegate.swift */,
 				013C9AAA242D92B400785A3F /* Main.storyboard */,
@@ -202,6 +203,117 @@
 			sourceTree = "<group>";
 		};
 		013C9ADD242D932B00785A3F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		013C9ADE242D958B00785A3F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		013C9ADF242D95A200785A3F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				013C9AD4242D92F100785A3F /* ContactList */,
+				013C9AD5242D92F100785A3F /* ContactDetail */,
+				013C9AE1242D95CD00785A3F /* AddContact */,
+				013C9AE7242D964500785A3F /* Coordinator */,
+				013C9AE0242D95CD00785A3F /* EditContact */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		013C9AE0242D95CD00785A3F /* EditContact */ = {
+			isa = PBXGroup;
+			children = (
+				013C9AEA242D964C00785A3F /* Model */,
+				013C9AE9242D964C00785A3F /* View */,
+				013C9AEB242D964C00785A3F /* ViewModel */,
+				013C9AE8242D964C00785A3F /* Coordinator */,
+			);
+			path = EditContact;
+			sourceTree = "<group>";
+		};
+		013C9AE1242D95CD00785A3F /* AddContact */ = {
+			isa = PBXGroup;
+			children = (
+				013C9AE5242D964500785A3F /* Model */,
+				013C9AE4242D964500785A3F /* View */,
+				013C9AE6242D964500785A3F /* ViewModel */,
+			);
+			path = AddContact;
+			sourceTree = "<group>";
+		};
+		013C9AE2242D960800785A3F /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				013C9AE3242D962700785A3F /* Services */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		013C9AE3242D962700785A3F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		013C9AE4242D964500785A3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		013C9AE5242D964500785A3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		013C9AE6242D964500785A3F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		013C9AE7242D964500785A3F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		013C9AE8242D964C00785A3F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		013C9AE9242D964C00785A3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		013C9AEA242D964C00785A3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		013C9AEB242D964C00785A3F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
