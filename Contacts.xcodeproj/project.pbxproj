@@ -20,6 +20,8 @@
 		013C9AF1242DA57800785A3F /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AF0242DA57800785A3F /* ContactService.swift */; };
 		013C9AF3242DA58400785A3F /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AF2242DA58400785A3F /* EndPoint.swift */; };
 		013C9AF5242DA59C00785A3F /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AF4242DA59C00785A3F /* NetworkHandler.swift */; };
+		015BBB10242DBA5300C166C1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015BBB0F242DBA5300C166C1 /* Request.swift */; };
+		01F51CE0242DD60D001A7503 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F51CDF242DD60D001A7503 /* Response.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		013C9AF0242DA57800785A3F /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
 		013C9AF2242DA58400785A3F /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		013C9AF4242DA59C00785A3F /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		015BBB0F242DBA5300C166C1 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		01F51CDF242DD60D001A7503 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,7 +238,6 @@
 				013C9AD4242D92F100785A3F /* ContactList */,
 				013C9AD5242D92F100785A3F /* ContactDetail */,
 				013C9AE1242D95CD00785A3F /* AddContact */,
-				013C9AE7242D964500785A3F /* Coordinator */,
 				013C9AE0242D95CD00785A3F /* EditContact */,
 			);
 			path = Modules;
@@ -267,6 +270,8 @@
 				013C9AE3242D962700785A3F /* Services */,
 				013C9AF2242DA58400785A3F /* EndPoint.swift */,
 				013C9AF4242DA59C00785A3F /* NetworkHandler.swift */,
+				015BBB0F242DBA5300C166C1 /* Request.swift */,
+				01F51CDF242DD60D001A7503 /* Response.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -298,13 +303,6 @@
 			children = (
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		013C9AE7242D964500785A3F /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		013C9AE8242D964C00785A3F /* Coordinator */ = {
@@ -470,9 +468,11 @@
 				013C9AED242DA3CE00785A3F /* ContactListViewModel.swift in Sources */,
 				013C9AF1242DA57800785A3F /* ContactService.swift in Sources */,
 				013C9AEF242DA3E500785A3F /* Contact.swift in Sources */,
+				01F51CE0242DD60D001A7503 /* Response.swift in Sources */,
 				013C9AA5242D92B400785A3F /* AppDelegate.swift in Sources */,
 				013C9AF3242DA58400785A3F /* EndPoint.swift in Sources */,
 				013C9AA7242D92B400785A3F /* SceneDelegate.swift in Sources */,
+				015BBB10242DBA5300C166C1 /* Request.swift in Sources */,
 				013C9AF5242DA59C00785A3F /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

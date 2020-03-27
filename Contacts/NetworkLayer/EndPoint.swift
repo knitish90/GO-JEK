@@ -10,4 +10,8 @@ import Foundation
 
 struct EndPoint {
     static let baseURL = "http://gojek-contacts-app.herokuapp.com/contacts"
+    
+    struct Contacts {
+        static let getContacts = EndPoint.baseURL + "/contacts.json"
+    }
 }
