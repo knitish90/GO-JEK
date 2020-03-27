@@ -21,6 +21,9 @@
 		013C9AF3242DA58400785A3F /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AF2242DA58400785A3F /* EndPoint.swift */; };
 		013C9AF5242DA59C00785A3F /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C9AF4242DA59C00785A3F /* NetworkHandler.swift */; };
 		015BBB10242DBA5300C166C1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015BBB0F242DBA5300C166C1 /* Request.swift */; };
+		01657F30242DEB8D0013A149 /* ContactListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F2F242DEB8D0013A149 /* ContactListCell.swift */; };
+		01657F32242DEBA60013A149 /* ContactListSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F31242DEBA60013A149 /* ContactListSectionHeaderCell.swift */; };
+		01657F34242DEE6B0013A149 /* CellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F33242DEE6B0013A149 /* CellHelper.swift */; };
 		01F51CE0242DD60D001A7503 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F51CDF242DD60D001A7503 /* Response.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,9 @@
 		013C9AF2242DA58400785A3F /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		013C9AF4242DA59C00785A3F /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		015BBB0F242DBA5300C166C1 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		01657F2F242DEB8D0013A149 /* ContactListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListCell.swift; sourceTree = "<group>"; };
+		01657F31242DEBA60013A149 /* ContactListSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListSectionHeaderCell.swift; sourceTree = "<group>"; };
+		01657F33242DEE6B0013A149 /* CellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHelper.swift; sourceTree = "<group>"; };
 		01F51CDF242DD60D001A7503 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +198,7 @@
 		013C9AD9242D932000785A3F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01657F2E242DEB650013A149 /* CustomCell */,
 				013C9AA8242D92B400785A3F /* ContactListViewController.swift */,
 			);
 			path = View;
@@ -333,6 +340,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		01657F2E242DEB650013A149 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				01657F2F242DEB8D0013A149 /* ContactListCell.swift */,
+				01657F31242DEBA60013A149 /* ContactListSectionHeaderCell.swift */,
+				01657F33242DEE6B0013A149 /* CellHelper.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -468,12 +485,15 @@
 				013C9AED242DA3CE00785A3F /* ContactListViewModel.swift in Sources */,
 				013C9AF1242DA57800785A3F /* ContactService.swift in Sources */,
 				013C9AEF242DA3E500785A3F /* Contact.swift in Sources */,
+				01657F30242DEB8D0013A149 /* ContactListCell.swift in Sources */,
+				01657F34242DEE6B0013A149 /* CellHelper.swift in Sources */,
 				01F51CE0242DD60D001A7503 /* Response.swift in Sources */,
 				013C9AA5242D92B400785A3F /* AppDelegate.swift in Sources */,
 				013C9AF3242DA58400785A3F /* EndPoint.swift in Sources */,
 				013C9AA7242D92B400785A3F /* SceneDelegate.swift in Sources */,
 				015BBB10242DBA5300C166C1 /* Request.swift in Sources */,
 				013C9AF5242DA59C00785A3F /* NetworkHandler.swift in Sources */,
+				01657F32242DEBA60013A149 /* ContactListSectionHeaderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

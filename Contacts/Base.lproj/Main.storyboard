@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="65" id="1Nn-Js-JCy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactListCell" rowHeight="65" id="1Nn-Js-JCy" customClass="ContactListCell" customModule="Contacts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Nn-Js-JCy" id="K3J-Qc-qGY">
@@ -59,8 +59,13 @@
                                                 <constraint firstItem="Zi4-F7-8KZ" firstAttribute="top" secondItem="K3J-Qc-qGY" secondAttribute="top" constant="13" id="txN-oL-GTO"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favouriteButton" destination="ltU-FQ-JaL" id="roh-ea-mc1"/>
+                                            <outlet property="nameLabel" destination="tVK-bR-BS2" id="Y6W-mq-keO"/>
+                                            <outlet property="profileImageView" destination="Zi4-F7-8KZ" id="KDv-Ak-pbu"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="28" id="uxA-A1-nrB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactListSectionHeaderCell" rowHeight="28" id="uxA-A1-nrB" customClass="ContactListSectionHeaderCell" customModule="Contacts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="120.33333206176758" width="375" height="28"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uxA-A1-nrB" id="npD-c9-qbn">
@@ -83,6 +88,10 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="I1Z-fE-jOM"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="75c-Wj-Kdc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -99,6 +108,9 @@
                             <color key="tintColor" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="9YG-Mv-k65" id="fSW-Bm-a1L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

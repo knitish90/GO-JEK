@@ -8,30 +8,38 @@
 
 import Foundation
 
-struct Contact: Encodable {
-    let id: Int
-    let firstName, lastName, email, phoneNumber: String
-    let profilePic: String
-    var isFavorite: Bool
-    let createdAt, updatedAt: String
 
-    var profileImaeURl: String {
-        return EndPoint.baseURL + profilePic
+protocol ContactListViewModelProtocol {
+    init(service : ContactServiceProtocol)
+    func viewDidLoad()
+    var didContactsLoaded : (()->Void)? { get set }
+    var didContactsFailed : ((_ error: Error?)->Void)? { get set }
+    
+}
+
+
+struct ContactListViewModel : ContactListViewModelProtocol {
+    var didContactsFailed: ((Error?) -> Void)?
+    var didContactsLoaded: (() -> Void)?
+    
+    var service : ContactServiceProtocol
+    init(service: ContactServiceProtocol) {
+        self.service = service
     }
     
-    var fullName : String {
-        return firstName + " " + lastName
+    func viewDidLoad() {
+        fetchContacts()
     }
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case firstName  =   "first_name"
-        case lastName   =   "last_name"
-        case email
-        case phoneNumber =  "phone_number"
-        case profilePic =   "profile_pic"
-        case isFavorite =   "favorite"
-        case createdAt  =   "created_at"
-        case updatedAt  =   "updated_at"
+    func fetchContacts() {
+        service.getContacts { (error, contactList) in
+            if error == nil {
+                self.didContactsLoaded?()
+            }else {
+                self.didContactsFailed?(error)
+            }
+        }
     }
+    
+    
 }
