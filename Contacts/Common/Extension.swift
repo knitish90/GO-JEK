@@ -26,3 +26,18 @@ extension UIImageView {
     }
 }
 
+extension UIApplication {
+    var isTestingEnvEnabled : Bool {
+        return (ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil)
+    }
+}
+
+
+extension UIViewController {
+    func showAlert(_ message: String?){
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(.init(title: "Ok", style: .default, handler: { (alertAction) in
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
+}

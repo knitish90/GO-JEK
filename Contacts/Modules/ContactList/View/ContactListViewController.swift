@@ -8,16 +8,18 @@
 
 import UIKit
 
-class ContactListViewController: UIViewController {
+
+class ContactListViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var viewModel : ContactListViewModelProtocol!
+    weak var delegate  :    ContactListCoordinatorDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        viewModel = ContactListViewModel(service: ContactService(httpClient: HTTPClient()))
+        
         bindViewModel()
     }
 
@@ -29,7 +31,7 @@ class ContactListViewController: UIViewController {
         }
         
         viewModel?.didContactsFailed = { (error) in
-            print(error?.localizedDescription ?? "")
+            self.showAlert(error?.localizedDescription)
         }
     }
 
@@ -40,6 +42,7 @@ extension ContactListViewController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItemIn(Section: section)
     }
