@@ -19,18 +19,20 @@ class ContactListViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
         bindViewModel()
     }
 
     func bindViewModel() {
         viewModel.viewDidLoad()
+        self.view.showLoader(with: "Loading Contacts")
         
         viewModel?.didContactsLoaded = {
+            self.view.hideLoader()
             self.tableView.reloadData()
         }
         
         viewModel?.didContactsFailed = { (error) in
+            self.view.hideLoader()
             self.showAlert(error?.localizedDescription)
         }
     }
