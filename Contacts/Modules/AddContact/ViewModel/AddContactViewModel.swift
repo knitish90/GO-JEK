@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+
+protocol AddContactViewModelProtocol {
+    
+}
+
+class AddContactViewModel {
+    
+}

@@ -20,11 +20,13 @@ enum ResponseType {
 
 protocol HTTPClientProtocol {
     func getData(urlString : String, completion : @escaping networkCompletion)
+    func postData(urlString : String, body : Data?, completion : @escaping networkCompletion)
     func updateData(urlString : String, body : Data?, completion : @escaping networkCompletion)
 }
 
 
 struct HTTPClient : HTTPClientProtocol {
+
     private let session : URLSession
     
     init(session : URLSession = URLSession.shared) {
@@ -45,6 +47,20 @@ struct HTTPClient : HTTPClientProtocol {
         }.resume()
     }
     
+    func postData(urlString: String, body: Data?, completion: @escaping networkCompletion) {
+        guard let url = URL(string: urlString) else {
+            return completion(nil,nil)
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod  =   HTTPMethod.POST.rawValue
+        request.httpBody    =   body
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        session.dataTask(with: request) { (data, response, error) in
+            completion(data,error)
+        }.resume()
+    }
+
     func updateData(urlString: String, body: Data?, completion: @escaping networkCompletion) {
         guard let url = URL(string: urlString) else {
             return completion(nil,nil)

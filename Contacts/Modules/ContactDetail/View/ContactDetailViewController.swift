@@ -57,12 +57,15 @@ class ContactDetailViewController: BaseViewController {
     }
     
     @IBAction func messageButtonTapped(_ sender: Any) {
+        message(with: viewModel.phone)
     }
     
     @IBAction func callButtonTapped(_ sender: Any) {
+        call(with: viewModel.phone)
     }
     
     @IBAction func emailButtonTapped(_ sender: Any) {
+        email(with: viewModel.emailId)
     }
     
     @IBAction func favouriteButtonTapped(_ sender: Any) {

@@ -18,7 +18,7 @@ class ContactListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        configureUI()
         bindViewModel()
     }
 
@@ -37,6 +37,13 @@ class ContactListViewController: BaseViewController {
         }
     }
 
+    func configureUI() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContactTapped))
+    }
+    
+    @objc func addContactTapped() {
+        delegate?.navigateToAddContactPage()
+    }
 }
 
 

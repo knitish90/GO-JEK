@@ -43,7 +43,9 @@ class ContactListCoordinator : Coordinator {
 
 extension ContactListCoordinator : ContactListCoordinatorDelegate {
     func navigateToAddContactPage() {
-        
+        let coordinator = AddContactsCoordinator(navigationController: navigationController)
+        coordinator.childCoordinators.append(coordinator)
+        coordinator.start()
     }
     
     func navigateToContactDetailPage(contact: ContactListCellViewModel) {
