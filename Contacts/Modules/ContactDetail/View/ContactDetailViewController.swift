@@ -13,6 +13,7 @@ class ContactDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
         bindViewModel()
         
     }
@@ -21,4 +22,33 @@ class ContactDetailViewController: BaseViewController {
         
     }
 
+    func configureUI() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editContactButtonTapped))
+    }
+    
+    @objc func editContactButtonTapped() {
+        
+    }
+    
+    @IBAction func messageButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func callButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func emailButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func favouriteButtonTapped(_ sender: Any) {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

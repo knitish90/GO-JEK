@@ -10,12 +10,21 @@ import UIKit
 
 class AddContactViewController: BaseViewController {
 
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var mobileTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
+    @IBAction func uploadImageButtonTapped(_ sender: Any) {
+        ImagePicker.initialize()
+    }
+    
 
 }

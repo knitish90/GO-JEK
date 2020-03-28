@@ -50,7 +50,11 @@ extension ContactListCoordinator : ContactListCoordinatorDelegate {
     }
     
     func navigateToContactDetailPage(contact: ContactListCellViewModel) {
-        
+        let coordinator = ContactDetailCoordinator(navigationController: navigationController)
+        //coordinator.contactId   =   contact.id
+        childCoordinators.append(coordinator)
+        coordinator.childCoordinators   =   childCoordinators
+        coordinator.start()
     }
     
 }

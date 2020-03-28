@@ -44,6 +44,7 @@
 		01657F98242EFC3D0013A149 /* ContactDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F97242EFC3D0013A149 /* ContactDetailCoordinator.swift */; };
 		01657F9C242EFC950013A149 /* AddContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9B242EFC950013A149 /* AddContactCoordinator.swift */; };
 		01657F9E242EFCAF0013A149 /* EditCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9D242EFCAF0013A149 /* EditCoordinator.swift */; };
+		01657FA0242F3D380013A149 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9F242F3D380013A149 /* ImagePicker.swift */; };
 		01F51CE0242DD60D001A7503 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F51CDF242DD60D001A7503 /* Response.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		01657F97242EFC3D0013A149 /* ContactDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailCoordinator.swift; sourceTree = "<group>"; };
 		01657F9B242EFC950013A149 /* AddContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactCoordinator.swift; sourceTree = "<group>"; };
 		01657F9D242EFCAF0013A149 /* EditCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCoordinator.swift; sourceTree = "<group>"; };
+		01657F9F242F3D380013A149 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		01F51CDF242DD60D001A7503 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,6 +289,7 @@
 				01657F45242E51720013A149 /* BaseViewController.swift */,
 				01657F85242E72640013A149 /* ViewExtension.swift */,
 				01657F87242E78760013A149 /* ActivityIndicator.swift */,
+				01657F9F242F3D380013A149 /* ImagePicker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				01657F3C242E080E0013A149 /* Section.swift in Sources */,
 				01657F38242E05A60013A149 /* ContactListCellViewModel.swift in Sources */,
 				01657F92242EFC040013A149 /* ContactDetailViewModel.swift in Sources */,
+				01657FA0242F3D380013A149 /* ImagePicker.swift in Sources */,
 				013C9AA9242D92B400785A3F /* ContactListViewController.swift in Sources */,
 				01657F42242E489E0013A149 /* ContactListCoordinator.swift in Sources */,
 				01657F96242EFC290013A149 /* EditContactViewController.swift in Sources */,

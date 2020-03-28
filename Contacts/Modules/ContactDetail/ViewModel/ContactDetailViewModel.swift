@@ -7,3 +7,30 @@
 //
 
 import Foundation
+
+protocol ContactDetailViewModelProtocol {
+    init(contact : Contact, service : ContactServiceProtocol)
+    func getContactDetails()
+    func makeFavourite()
+}
+
+
+class ContactDetailViewModel  : ContactDetailViewModelProtocol{
+    
+    var contactService : ContactServiceProtocol
+    var contact : Contact
+    required init(contact : Contact, service : ContactServiceProtocol) {
+        contactService  =   service
+        self.contact    =   contact
+    }
+    
+    func getContactDetails() {
+        
+    }
+    
+    func makeFavourite() {
+        
+    }
+    
+    
+}

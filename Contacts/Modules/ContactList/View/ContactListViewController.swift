@@ -72,6 +72,8 @@ extension ContactListViewController : UITableViewDataSource {
 
 extension ContactListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        let cellModel =  viewModel.cellViewModel(for: indexPath)
+        delegate?.navigateToContactDetailPage(contact: cellModel)
     }
 }
