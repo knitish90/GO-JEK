@@ -13,5 +13,7 @@ struct EndPoint {
     
     struct Contacts {
         static let getContacts = EndPoint.baseURL + "/contacts.json"
+        static let contactDetails   =   EndPoint.baseURL + "/contacts/{contactId}.json"
     }
 }
+

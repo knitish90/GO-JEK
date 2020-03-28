@@ -11,8 +11,19 @@ import UIKit
 
 extension String {
     var firstChar : String {
-        return String(self.prefix(1)).uppercased()
+        String(self.prefix(1)).uppercased()
     }
+    
+    func replace(of toReplace : String, with value : String)-> String {
+        replacingOccurrences(of: toReplace, with: value)
+    }
+    
+    func dateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = self
+        return formatter
+    }
+    
 }
 
 
@@ -41,3 +52,21 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
+
+
+extension Encodable {
+    func encode()  -> Data? {
+        let encoder = JSONEncoder()
+        let format = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        JSONEncoder().dateEncodingStrategy = .formatted(format.dateFormatter())
+        
+        var data : Data?
+        do {
+             data = try encoder.encode(self)
+        } catch {
+            assertionFailure(error.localizedDescription)
+        }
+        return data
+    }
+}
+

@@ -45,6 +45,7 @@
 		01657F9C242EFC950013A149 /* AddContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9B242EFC950013A149 /* AddContactCoordinator.swift */; };
 		01657F9E242EFCAF0013A149 /* EditCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9D242EFCAF0013A149 /* EditCoordinator.swift */; };
 		01657FA0242F3D380013A149 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9F242F3D380013A149 /* ImagePicker.swift */; };
+		01657FA2242F52000013A149 /* ContactDeatilViewModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657FA1242F52000013A149 /* ContactDeatilViewModel+Extension.swift */; };
 		01F51CE0242DD60D001A7503 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F51CDF242DD60D001A7503 /* Response.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		01657F9B242EFC950013A149 /* AddContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactCoordinator.swift; sourceTree = "<group>"; };
 		01657F9D242EFCAF0013A149 /* EditCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCoordinator.swift; sourceTree = "<group>"; };
 		01657F9F242F3D380013A149 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		01657FA1242F52000013A149 /* ContactDeatilViewModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactDeatilViewModel+Extension.swift"; sourceTree = "<group>"; };
 		01F51CDF242DD60D001A7503 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				01657F91242EFC040013A149 /* ContactDetailViewModel.swift */,
+				01657FA1242F52000013A149 /* ContactDeatilViewModel+Extension.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				013C9AF3242DA58400785A3F /* EndPoint.swift in Sources */,
 				01657F3A242E06E20013A149 /* ContactListViewModel+Ext.swift in Sources */,
 				01657F98242EFC3D0013A149 /* ContactDetailCoordinator.swift in Sources */,
+				01657FA2242F52000013A149 /* ContactDeatilViewModel+Extension.swift in Sources */,
 				015BBB10242DBA5300C166C1 /* Request.swift in Sources */,
 				013C9AF5242DA59C00785A3F /* NetworkHandler.swift in Sources */,
 				01657F90242EFBF30013A149 /* AddContactViewModel.swift in Sources */,

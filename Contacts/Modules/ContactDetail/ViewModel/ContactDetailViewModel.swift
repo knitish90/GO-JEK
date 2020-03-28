@@ -8,29 +8,61 @@
 
 import Foundation
 
-protocol ContactDetailViewModelProtocol {
-    init(contact : Contact, service : ContactServiceProtocol)
+protocol ContactDetailViewModelProtocol : ContactDataBaseProtocol{
+    init(contactId : Int, service : ContactServiceProtocol)
+    func viewDidLoad()
     func getContactDetails()
     func makeFavourite()
+    var didLoadingFailed : ((_ error : Error?) -> Void)? { get set}
+    var didLoadingSuccess : (()-> Void)? { get set}
 }
 
 
 class ContactDetailViewModel  : ContactDetailViewModelProtocol{
     
-    var contactService : ContactServiceProtocol
-    var contact : Contact
-    required init(contact : Contact, service : ContactServiceProtocol) {
+    var didLoadingFailed    : ((Error?) -> Void)?
+    var didLoadingSuccess   : (() -> Void)?
+    
+    
+    var contactService  :   ContactServiceProtocol
+    var contact         :   Contact!
+    var contactId       :   Int
+    
+    required init(contactId : Int, service : ContactServiceProtocol) {
         contactService  =   service
-        self.contact    =   contact
+        self.contactId    =   contactId
+    }
+    
+    func viewDidLoad() {
+        getContactDetails()
     }
     
     func getContactDetails() {
-        
+        contactService.contactDetails(contactId: contactId) { (error, contact) in
+            DispatchQueue.main.async {
+                if error == nil {
+                    self.contact    =   contact!
+                    print(contact!)
+                    self.didLoadingSuccess?()
+                }else {
+                    self.didLoadingFailed?(error)
+                }
+            }
+        }
     }
     
     func makeFavourite() {
-        
-    }
-    
-    
+        contactService.updateContact(contact) { (error, contact) in
+            DispatchQueue.main.async {
+                if error == nil {
+                    self.contact    =   contact
+                    self.didLoadingSuccess?()
+                }else {
+                    self.didLoadingFailed?(error)
+                }
+            }
+        }
+    }    
 }
+
+

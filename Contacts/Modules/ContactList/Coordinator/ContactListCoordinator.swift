@@ -31,15 +31,12 @@ class ContactListCoordinator : Coordinator {
         self.navigationController   =   navigationController
     }
     
-    
     func start() {
         let controller = ContactListViewController.instance()
         controller.delegate =   self
         controller.viewModel    =  ContactListViewModel(service: ContactService(httpClient: HTTPClient()))
         self.navigationController.viewControllers   =   [controller]
     }
-    
-    
 }
 
 
@@ -51,11 +48,10 @@ extension ContactListCoordinator : ContactListCoordinatorDelegate {
     
     func navigateToContactDetailPage(contact: ContactListCellViewModel) {
         let coordinator = ContactDetailCoordinator(navigationController: navigationController)
-        //coordinator.contactId   =   contact.id
+        coordinator.contact =   contact
         childCoordinators.append(coordinator)
         coordinator.childCoordinators   =   childCoordinators
         coordinator.start()
     }
-    
 }
 

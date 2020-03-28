@@ -166,6 +166,9 @@
                                                                                 <real key="value" value="22"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="messageButtonTapped:" destination="9QJ-X0-SPE" eventType="touchUpInside" id="DKq-G1-zVR"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPj-yP-PRO">
                                                                         <rect key="frame" x="0.0" y="52" width="81" height="14.5"/>
@@ -197,6 +200,9 @@
                                                                                 <real key="value" value="22"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="callButtonTapped:" destination="9QJ-X0-SPE" eventType="touchUpInside" id="RYx-6Y-Bbg"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-zZ-wU5">
                                                                         <rect key="frame" x="0.0" y="52" width="81" height="14.5"/>
@@ -228,6 +234,9 @@
                                                                                 <real key="value" value="22"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="emailButtonTapped:" destination="9QJ-X0-SPE" eventType="touchUpInside" id="7yc-8x-g84"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-7d-rzD">
                                                                         <rect key="frame" x="0.0" y="52" width="81" height="14.5"/>
@@ -254,11 +263,15 @@
                                                                             <constraint firstAttribute="width" constant="44" id="uK7-fb-jQi"/>
                                                                         </constraints>
                                                                         <state key="normal" image="favourite_unselected"/>
+                                                                        <state key="selected" image="favourite_selected"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="corner_Radius">
                                                                                 <real key="value" value="22"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="favouriteButtonTapped:" destination="9QJ-X0-SPE" eventType="touchUpInside" id="Mkx-R6-kNH"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="favourite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmh-o8-57E">
                                                                         <rect key="frame" x="0.0" y="52" width="81" height="14.5"/>
@@ -406,6 +419,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CMg-6O-AHT"/>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="hxg-SY-pbC" id="eIW-vK-QHK"/>
+                        <outlet property="favouriteButton" destination="VJ6-43-676" id="aIu-Tf-TJc"/>
+                        <outlet property="mobileLabel" destination="A6q-M3-9ZM" id="DFN-WZ-kUA"/>
+                        <outlet property="nameLabel" destination="hFE-06-ezb" id="jxT-N5-BPM"/>
+                        <outlet property="profileImageView" destination="yJc-q0-0Ap" id="E4N-8T-86y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okF-Nq-Ll4" sceneMemberID="firstResponder"/>
             </objects>
@@ -663,6 +683,7 @@
         <image name="call_button" width="45" height="44"/>
         <image name="camera_button" width="41" height="41"/>
         <image name="email_button" width="45" height="44"/>
+        <image name="favourite_selected" width="44" height="44"/>
         <image name="favourite_unselected" width="44" height="44"/>
         <image name="home_favourite" width="19" height="18"/>
         <image name="message_button" width="44" height="44"/>

@@ -12,6 +12,7 @@ import UIKit
 class ContactDetailCoordinator : Coordinator {
     var childCoordinators: [Coordinator] = []
     weak var navigationController : UINavigationController?
+    var contact : ContactDataBaseProtocol!
     
     required init(navigationController: UINavigationController) {
         self.navigationController   =   navigationController
@@ -19,6 +20,8 @@ class ContactDetailCoordinator : Coordinator {
     
     func start() {
         let controller = ContactDetailViewController.instance()
+        let viewModel = ContactDetailViewModel(contactId: contact.id, service: ContactService(httpClient: HTTPClient()))
+        controller.viewModel    =  viewModel
         self.navigationController?.pushViewController(controller, animated: true)
     }
     

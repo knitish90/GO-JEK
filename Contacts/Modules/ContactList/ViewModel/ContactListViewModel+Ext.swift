@@ -23,7 +23,7 @@ extension ContactListViewModel {
         var prevContact     :   Contact?
         
         for contact in contacts {
-            if contact.isFavorite {
+            if contact.favourite {
                 favSection.contacts.append(contact)
             }else if contact.fullName.firstChar != prevContact?.fullName.firstChar {
                 let sectionTitle = contact.fullName.firstChar

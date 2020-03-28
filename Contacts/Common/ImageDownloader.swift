@@ -29,18 +29,14 @@ class imageDownloader {
             self.handler?(cachedImage, nil)
         }else {
             let operation = BlockOperation()
-        
-            weak var weakOperation = operation
             operation.addExecutionBlock {
-                if !(weakOperation?.isCancelled ?? true) {
-                    let image = imageDownloader.loadImage(urlString: imageUrl)
-                    DispatchQueue.main.async {
-                        if !(weakOperation?.isCancelled ?? true) {
-                            imageCache.setObject(image!, forKey: "\(imageUrl)" as NSString)
-                            handler(image,nil)
-                        }
-                        
+                let image = imageDownloader.loadImage(urlString: imageUrl)
+                DispatchQueue.main.async {
+                    guard let image = image else {
+                        return handler(nil, nil)
                     }
+                    imageCache.setObject(image, forKey: "\(imageUrl)" as NSString)
+                    handler(image,nil)
                 }
             }
             imageDownloader.operationQueue.addOperation(operation)

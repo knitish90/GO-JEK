@@ -23,7 +23,7 @@ struct ContactListCellViewModel : ContactDataBaseProtocol {
         self.id             =   contact.id
         self.fullName       =   contact.fullName
         self.profileUrl     =   contact.profileImaeURl
-        self.isFavourite    =   contact.isFavorite
+        self.isFavourite    =   contact.favourite
         self.emailId        =   contact.email
         self.phone          =   contact.phoneNumber
         self.firstName      =   contact.firstName

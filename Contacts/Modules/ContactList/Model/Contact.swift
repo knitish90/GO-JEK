@@ -9,21 +9,20 @@
 import Foundation
 
 protocol ContactDataBaseProtocol {
-    var id          : Int {get set}
+    var id          : Int {get}
     var fullName    : String {get}
-    var profileUrl  : String {get set}
+    var profileUrl  : String {get}
     var isFavourite : Bool {get set}
-    var firstName   : String {get set}
-    var lastName    : String {get set}
-    var emailId     : String {get set}
-    var phone       : String {get set}
+    var emailId     : String {get}
+    var phone       : String {get}
 }
+
 
 struct Contact: Codable {
     let id: Int
     let firstName, lastName, email, phoneNumber: String
     let profilePic: String
-    var isFavorite: Bool
+    var favourite: Bool
     let createdAt, updatedAt: String
 
     var profileImaeURl: String {
@@ -41,7 +40,7 @@ struct Contact: Codable {
         case email
         case phoneNumber =  "phone_number"
         case profilePic =   "profile_pic"
-        case isFavorite =   "favorite"
+        case favourite =   "favorite"
         case createdAt  =   "created_at"
         case updatedAt  =   "updated_at"
     }
@@ -55,7 +54,7 @@ struct Contact: Codable {
         self.email          =   try container.parse(with: .email, defaultValue: "")
         self.phoneNumber    =   try container.parse(with: .phoneNumber, defaultValue: "")
         self.profilePic     =   try container.parse(with: .profilePic, defaultValue: "")
-        self.isFavorite     =   try container.parse(with: .isFavorite, defaultValue: false)
+        self.favourite      =   try container.parse(with: .favourite, defaultValue: false)
         self.createdAt      =   try container.parse(with: .createdAt, defaultValue: "" )
         self.updatedAt      =   try container.parse(with: .updatedAt, defaultValue: "")
         
