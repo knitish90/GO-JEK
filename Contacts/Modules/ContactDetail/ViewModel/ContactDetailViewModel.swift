@@ -18,19 +18,19 @@ protocol ContactDetailViewModelProtocol : ContactDataBaseProtocol{
 }
 
 
-class ContactDetailViewModel  : ContactDetailViewModelProtocol{
-    
+class ContactDetailViewModel  : BaseContactModel, ContactDetailViewModelProtocol{
+
     var didLoadingFailed    : ((Error?) -> Void)?
     var didLoadingSuccess   : (() -> Void)?
     
     
     var contactService  :   ContactServiceProtocol
-    var contact         :   Contact!
     var contactId       :   Int
     
     required init(contactId : Int, service : ContactServiceProtocol) {
         contactService  =   service
-        self.contactId    =   contactId
+        self.contactId  =   contactId
+        super.init(contact: Contact())
     }
     
     func viewDidLoad() {
@@ -55,7 +55,7 @@ class ContactDetailViewModel  : ContactDetailViewModelProtocol{
         contactService.updateContact(contact) { (error, contact) in
             DispatchQueue.main.async {
                 if error == nil {
-                    self.contact    =   contact
+                    self.contact    =   contact!
                     self.didLoadingSuccess?()
                 }else {
                     self.didLoadingFailed?(error)

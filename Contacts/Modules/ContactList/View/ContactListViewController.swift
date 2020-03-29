@@ -12,17 +12,16 @@ import UIKit
 class ContactListViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var viewModel : ContactListViewModelProtocol!
-    weak var delegate  :    ContactListCoordinatorDelegate?
+    var viewModel       :   ContactListViewModelProtocol!
+    weak var delegate   :   ContactListCoordinatorDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        configureUI()
-        bindViewModel()
+        addObserver()
     }
 
-    func bindViewModel() {
+    override func bindViewModel() {
         viewModel.viewDidLoad()
         self.view.showLoader(with: "Loading Contacts")
         
@@ -37,7 +36,7 @@ class ContactListViewController: BaseViewController {
         }
     }
 
-    func configureUI() {
+    override func configureUI() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContactTapped))
         setHeaderTitle()
     }
@@ -48,6 +47,19 @@ class ContactListViewController: BaseViewController {
     
     @objc func addContactTapped() {
         delegate?.navigateToAddContactPage()
+    }
+    
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didContactEdited), name: NSNotification.Name(Constants.NotifificationName.ContactEdited), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(newContactAdded), name: NSNotification.Name(Constants.NotifificationName.NewContactAdded), object: nil)
+    }
+    
+    @objc func didContactEdited() {
+        bindViewModel()
+    }
+    
+    @objc func newContactAdded() {
+        bindViewModel()
     }
 }
 

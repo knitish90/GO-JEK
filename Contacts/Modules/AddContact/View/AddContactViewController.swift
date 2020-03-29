@@ -17,6 +17,7 @@ class AddContactViewController: BaseViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet weak var topBackgroundView: UIView!
     weak var delegate : AddCoordinatorProtocol?
     var tapperGesture : UITapGestureRecognizer!
     
@@ -27,12 +28,15 @@ class AddContactViewController: BaseViewController {
         
         tapperGesture   =   UITapGestureRecognizer(target: self, action: #selector(handlerOnScreenTouch))
         self.view.addGestureRecognizer(tapperGesture)
-        configureUI()
         addObserver()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.topBackgroundView.setGradient(with: .white, endColor: Constants.Colors.appStandardColor)
+    }
   
-    func configureUI() {
+    override func configureUI() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
         
@@ -83,7 +87,27 @@ class AddContactViewController: BaseViewController {
     }
     
     func addContact() {
+      
+        viewModel.firstName     =   firstNameTextField.text ?? ""
+        viewModel.lastName      =   lastNameTextField.text ?? ""
+        viewModel.phone         =   mobileTextField.text ?? ""
+        viewModel.emailId       =   emailTextField.text ?? ""
+        viewModel.profileUrl    =   ""
+        
+        self.view.showLoader()
         viewModel.addContact()
+        
+        viewModel.didLoadingSuccess = {
+            self.view.hideLoader()
+            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotifificationName.NewContactAdded), object: nil)
+            self.delegate?.navigateToPreviousPage()
+        }
+        
+        viewModel.didLoadingFailed = { error in
+            self.view.hideLoader()
+            self.showAlert(error?.localizedDescription)
+        }
     }
     
     @IBAction func uploadImageButtonTapped(_ sender: Any) {

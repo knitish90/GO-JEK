@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     struct ErrorMessage {
@@ -19,5 +20,14 @@ struct Constants {
         static let invalidPhoneError    =   "please enter valid phone number."
         static let firstNameEmptyError  =   "please enter your first name."
         static let lastNameEmptyError   =   "please enter your last name."
+    }
+    struct Colors {
+        static let appStandardColor     =   UIColor(red: 200.0/255.0, green: 227.0/255.0, blue: 220.0/255.0, alpha: 1.0)
+    }
+    
+    struct NotifificationName {
+        static var NewContactAdded  =   "newAccountsAdded"
+        static var ContactEdited    =   "ContactEdited"
+        
     }
 }

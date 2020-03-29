@@ -8,34 +8,34 @@
 
 import Foundation
 
-extension ContactDetailViewModel : ContactDataBaseProtocol {
-    
-    var id: Int {
-        self.contact.id
-    }
-    
-    var fullName: String {
-        self.contact.fullName
-    }
-    
-    var profileUrl: String {
-        self.contact.profileImaeURl
-    }
-
-    var emailId: String {
-        self.contact.email
-    }
-    
-    var phone: String {
-        self.contact.phoneNumber
-    }
-    
-    var isFavourite: Bool {
-        get {
-            self.contact.favourite
-        }
-        set {
-            self.contact.favourite = newValue
-        }
-    }
-}
+//extension ContactDetailViewModel : ContactDataBaseProtocol {
+//    
+//    var id: Int {
+//        self.contact.id
+//    }
+//    
+//    var fullName: String {
+//        self.contact.fullName
+//    }
+//    
+//    var profileUrl: String {
+//        self.contact.profileImaeURl
+//    }
+//
+//    var emailId: String {
+//        self.contact.email
+//    }
+//    
+//    var phone: String {
+//        self.contact.phoneNumber
+//    }
+//    
+//    var isFavourite: Bool {
+//        get {
+//            self.contact.favourite
+//        }
+//        set {
+//            self.contact.favourite = newValue
+//        }
+//    }
+//}

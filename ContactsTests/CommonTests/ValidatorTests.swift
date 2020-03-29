@@ -42,6 +42,6 @@ class ValidatorTests: XCTestCase {
     }
     
     func testInValidPhone() {
-        XCTAssertNil(validator.validate(text: "702259352", with: [.validPhone]))
+        XCTAssertNotNil(validator.validate(text: "702259352", with: [.validPhone]))
     }
 }

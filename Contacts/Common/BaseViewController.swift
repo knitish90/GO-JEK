@@ -10,12 +10,18 @@ import Foundation
 import UIKit
 
 class BaseViewController: UIViewController, StoryboardProtocol {
- 
-
-    override func viewDidLoad() {
+     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configureUI()
+        bindViewModel()
+    }
+    
+    func bindViewModel() {
+        
+    }
+    
+    func configureUI() {
+        
     }
 
 }

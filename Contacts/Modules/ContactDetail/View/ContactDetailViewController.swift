@@ -12,21 +12,38 @@ class ContactDetailViewController: BaseViewController {
 
     var viewModel : ContactDetailViewModelProtocol!
     
+    @IBOutlet weak var topBackgroudView: UIView!
     @IBOutlet weak var mobileLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var navigationImage : UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureUI()
-        bindViewModel()
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationImage = self.navigationController?.navigationBar.shadowImage
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
     }
     
-    func bindViewModel() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.navigationBar.shadowImage = navigationImage
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+         topBackgroudView.setGradient(with: .white, endColor: Constants.Colors.appStandardColor)
+    }
+    
+    override func bindViewModel() {
         viewModel.viewDidLoad()
         self.view.showLoader()
         viewModel.didLoadingSuccess = {
@@ -40,7 +57,7 @@ class ContactDetailViewController: BaseViewController {
         }
     }
 
-    func configureUI() {
+    override func configureUI() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editContactButtonTapped))
     }
     
@@ -71,6 +88,7 @@ class ContactDetailViewController: BaseViewController {
     @IBAction func favouriteButtonTapped(_ sender: Any) {
         viewModel.isFavourite   =   !viewModel.isFavourite
         viewModel.makeFavourite()
+        
         self.view.showLoader()
         viewModel.didLoadingSuccess = {
             self.view.hideLoader()

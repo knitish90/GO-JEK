@@ -9,20 +9,24 @@
 import Foundation
 
 
-protocol AddContactViewModelProtocol  {
+protocol AddContactViewModelProtocol : ContactDataBaseProtocol {
     init(service : ContactServiceProtocol)
-    var contact : Contact! { get set }
-    
     func viewDidLoad()
     func addContact()
+    
+    var didLoadingFailed : ((_ error : Error?) -> Void)? { get set}
+    var didLoadingSuccess : (()-> Void)? { get set}
 }
 
-class AddContactViewModel : AddContactViewModelProtocol{
+class AddContactViewModel : BaseContactModel, AddContactViewModelProtocol{
     var contactService : ContactServiceProtocol
-    var contact : Contact!
+    
+    var didLoadingFailed : ((_ error : Error?) -> Void)?
+    var didLoadingSuccess : (()-> Void)?
     
     required init(service: ContactServiceProtocol) {
         self.contactService =   service
+        super.init(contact: Contact())
     }
     
     func viewDidLoad() {
@@ -30,8 +34,15 @@ class AddContactViewModel : AddContactViewModelProtocol{
     }
     
     func addContact() {
-        contactService.addContact(contact) { (error, contact) in
-            
+        contactService.addContact(self.contact) { (error, contact) in
+            DispatchQueue.main.async {
+                if error == nil, contact != nil {
+                    self.contact = contact!
+                    self.didLoadingSuccess?()
+                }else {
+                    self.didLoadingFailed?(error)
+                }
+            }
         }
     }
     

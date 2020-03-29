@@ -70,3 +70,12 @@ extension Encodable {
     }
 }
 
+extension UIView {
+    func setGradient(with startColor : UIColor, endColor : UIColor) {
+        let gradientColor = CAGradientLayer()
+        gradientColor.colors = [startColor.cgColor, endColor.cgColor]
+        gradientColor.locations = [0.0 , 1.0]
+        gradientColor.frame = self.bounds
+        self.layer.insertSublayer(gradientColor, at: 0)
+    }
+}

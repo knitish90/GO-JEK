@@ -12,11 +12,11 @@ import Foundation
 
 
 struct Contact: Codable {
-    let id: Int
-    let firstName, lastName, email, phoneNumber: String
-    let profilePic: String
-    var favourite: Bool
-    let createdAt, updatedAt: String
+    var id: Int
+    var firstName, lastName, email, phoneNumber: String!
+    var profilePic: String!
+    var favourite: Bool!
+    var createdAt, updatedAt: String!
 
     var profileImaeURl: String {
         return EndPoint.baseURL + profilePic
@@ -51,6 +51,10 @@ struct Contact: Codable {
         self.createdAt      =   try container.parse(with: .createdAt, defaultValue: "" )
         self.updatedAt      =   try container.parse(with: .updatedAt, defaultValue: "")
         
+    }
+    
+    init() {
+        self.id = 0
     }
 }
 

@@ -34,7 +34,7 @@
 		01657F46242E51720013A149 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F45242E51720013A149 /* BaseViewController.swift */; };
 		01657F84242E6F470013A149 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F83242E6F470013A149 /* SceneDelegate.swift */; };
 		01657F86242E72640013A149 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F85242E72640013A149 /* ViewExtension.swift */; };
-		01657F88242E78760013A149 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F87242E78760013A149 /* ActivityIndicator.swift */; };
+		01657F88242E78760013A149 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F87242E78760013A149 /* LoaderView.swift */; };
 		01657F8C242EFB450013A149 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F8B242EFB450013A149 /* ContactDetailViewController.swift */; };
 		01657F8E242EFBB70013A149 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F8D242EFBB70013A149 /* AddContactViewController.swift */; };
 		01657F90242EFBF30013A149 /* AddContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F8F242EFBF30013A149 /* AddContactViewModel.swift */; };
@@ -52,6 +52,8 @@
 		01657FB1242FCA250013A149 /* BaseContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657FB0242FCA250013A149 /* BaseContactModel.swift */; };
 		01657FB3242FD1CF0013A149 /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657FB2242FD1CF0013A149 /* EditContactViewController.swift */; };
 		01D45BD92430435A00C56F84 /* ImageDownloaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BD82430435A00C56F84 /* ImageDownloaderTest.swift */; };
+		01D45BDB2430472900C56F84 /* LoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BDA2430472900C56F84 /* LoaderTest.swift */; };
+		01D45BDD2430494900C56F84 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BDC2430494900C56F84 /* ExtensionTests.swift */; };
 		01F51CE0242DD60D001A7503 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F51CDF242DD60D001A7503 /* Response.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +108,7 @@
 		01657F45242E51720013A149 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		01657F83242E6F470013A149 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		01657F85242E72640013A149 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
-		01657F87242E78760013A149 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		01657F87242E78760013A149 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		01657F8B242EFB450013A149 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		01657F8D242EFBB70013A149 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		01657F8F242EFBF30013A149 /* AddContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewModel.swift; sourceTree = "<group>"; };
@@ -124,6 +126,8 @@
 		01657FB0242FCA250013A149 /* BaseContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContactModel.swift; sourceTree = "<group>"; };
 		01657FB2242FD1CF0013A149 /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		01D45BD82430435A00C56F84 /* ImageDownloaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderTest.swift; sourceTree = "<group>"; };
+		01D45BDA2430472900C56F84 /* LoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderTest.swift; sourceTree = "<group>"; };
+		01D45BDC2430494900C56F84 /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		01F51CDF242DD60D001A7503 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,7 +195,8 @@
 		013C9ABA242D92B600785A3F /* ContactsTests */ = {
 			isa = PBXGroup;
 			children = (
-				01657FAB242F92670013A149 /* Common */,
+				01D45BDE243049D900C56F84 /* ModulesTest */,
+				01657FAB242F92670013A149 /* CommonTests */,
 				013C9ABB242D92B600785A3F /* ContactsTests.swift */,
 				013C9ABD242D92B600785A3F /* Info.plist */,
 			);
@@ -306,7 +311,7 @@
 				01657F3F242E290E0013A149 /* ImageDownloader.swift */,
 				01657F45242E51720013A149 /* BaseViewController.swift */,
 				01657F85242E72640013A149 /* ViewExtension.swift */,
-				01657F87242E78760013A149 /* ActivityIndicator.swift */,
+				01657F87242E78760013A149 /* LoaderView.swift */,
 				01657F9F242F3D380013A149 /* ImagePicker.swift */,
 				01657FA5242F799D0013A149 /* Constants.swift */,
 				01657FA7242F8EB50013A149 /* Validator.swift */,
@@ -441,13 +446,54 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		01657FAB242F92670013A149 /* Common */ = {
+		01657FAB242F92670013A149 /* CommonTests */ = {
 			isa = PBXGroup;
 			children = (
 				01657FAE242F92920013A149 /* ValidatorTests.swift */,
 				01D45BD82430435A00C56F84 /* ImageDownloaderTest.swift */,
+				01D45BDA2430472900C56F84 /* LoaderTest.swift */,
+				01D45BDC2430494900C56F84 /* ExtensionTests.swift */,
 			);
-			path = Common;
+			path = CommonTests;
+			sourceTree = "<group>";
+		};
+		01D45BDE243049D900C56F84 /* ModulesTest */ = {
+			isa = PBXGroup;
+			children = (
+				01D45BE024304A0900C56F84 /* ContactList */,
+				01D45BDF24304A0900C56F84 /* ContactDetails */,
+				01D45BE224304A0900C56F84 /* AddContact */,
+				01D45BE124304A0900C56F84 /* EditContact */,
+			);
+			path = ModulesTest;
+			sourceTree = "<group>";
+		};
+		01D45BDF24304A0900C56F84 /* ContactDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ContactDetails;
+			sourceTree = "<group>";
+		};
+		01D45BE024304A0900C56F84 /* ContactList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ContactList;
+			sourceTree = "<group>";
+		};
+		01D45BE124304A0900C56F84 /* EditContact */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EditContact;
+			sourceTree = "<group>";
+		};
+		01D45BE224304A0900C56F84 /* AddContact */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddContact;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -588,7 +634,7 @@
 				01657FA4242F77860013A149 /* ContactDetailViewController+Extension.swift in Sources */,
 				013C9AA9242D92B400785A3F /* ContactListViewController.swift in Sources */,
 				01657F42242E489E0013A149 /* ContactListCoordinator.swift in Sources */,
-				01657F88242E78760013A149 /* ActivityIndicator.swift in Sources */,
+				01657F88242E78760013A149 /* LoaderView.swift in Sources */,
 				013C9AED242DA3CE00785A3F /* ContactListViewModel.swift in Sources */,
 				013C9AF1242DA57800785A3F /* ContactService.swift in Sources */,
 				013C9AEF242DA3E500785A3F /* Contact.swift in Sources */,
@@ -629,6 +675,8 @@
 			files = (
 				01657FAF242F92920013A149 /* ValidatorTests.swift in Sources */,
 				01D45BD92430435A00C56F84 /* ImageDownloaderTest.swift in Sources */,
+				01D45BDB2430472900C56F84 /* LoaderTest.swift in Sources */,
+				01D45BDD2430494900C56F84 /* ExtensionTests.swift in Sources */,
 				013C9ABC242D92B600785A3F /* ContactsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

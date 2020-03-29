@@ -44,7 +44,12 @@ struct ContactService : ContactServiceProtocol {
     }
     
     func addContact(_ contact: Contact, _ completion : @escaping (_ error: Error?, _ contact : Contact?) -> Void) {
-        
+        let urlString = EndPoint.Contacts.addContacts
+        httpClient.postData(urlString: urlString, body: contact.encode()) { (data, error) in
+            Response().parseResponse(data, error) { (contact, error) in
+                completion(error, contact)
+            }
+        }
     }
     
     func updateContact(_ contact: Contact, _ completion : @escaping (_ error: Error?, _ contact : Contact?) -> Void) {
