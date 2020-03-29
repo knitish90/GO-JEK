@@ -42,7 +42,7 @@
 		01657F94242EFC1F0013A149 /* EditContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F93242EFC1F0013A149 /* EditContactViewModel.swift */; };
 		01657F98242EFC3D0013A149 /* ContactDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F97242EFC3D0013A149 /* ContactDetailCoordinator.swift */; };
 		01657F9C242EFC950013A149 /* AddContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9B242EFC950013A149 /* AddContactCoordinator.swift */; };
-		01657F9E242EFCAF0013A149 /* EditCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9D242EFCAF0013A149 /* EditCoordinator.swift */; };
+		01657F9E242EFCAF0013A149 /* EditContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9D242EFCAF0013A149 /* EditContactCoordinator.swift */; };
 		01657FA0242F3D380013A149 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657F9F242F3D380013A149 /* ImagePicker.swift */; };
 		01657FA2242F52000013A149 /* ContactDeatilViewModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657FA1242F52000013A149 /* ContactDeatilViewModel+Extension.swift */; };
 		01657FA4242F77860013A149 /* ContactDetailViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01657FA3242F77860013A149 /* ContactDetailViewController+Extension.swift */; };
@@ -54,6 +54,13 @@
 		01D45BD92430435A00C56F84 /* ImageDownloaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BD82430435A00C56F84 /* ImageDownloaderTest.swift */; };
 		01D45BDB2430472900C56F84 /* LoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BDA2430472900C56F84 /* LoaderTest.swift */; };
 		01D45BDD2430494900C56F84 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BDC2430494900C56F84 /* ExtensionTests.swift */; };
+		01D45BE524308A1500C56F84 /* ContactViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BE424308A1500C56F84 /* ContactViewModelTest.swift */; };
+		01D45BE72430914C00C56F84 /* testContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BE62430914C00C56F84 /* testContactData.swift */; };
+		01D45BEB243097C600C56F84 /* MockedContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BEA243097C600C56F84 /* MockedContactService.swift */; };
+		01D45BED2430AB8600C56F84 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D45BEC2430AB8600C56F84 /* Errors.swift */; };
+		01D91F962430C3950098B9E1 /* AddContactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D91F952430C3950098B9E1 /* AddContactTest.swift */; };
+		01D91F982430CAE40098B9E1 /* EditContactViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D91F972430CAE40098B9E1 /* EditContactViewModelTest.swift */; };
+		01D91F9A2430CE4A0098B9E1 /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D91F992430CE4A0098B9E1 /* CommonTests.swift */; };
 		01F51CE0242DD60D001A7503 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F51CDF242DD60D001A7503 /* Response.swift */; };
 /* End PBXBuildFile section */
 
@@ -116,7 +123,7 @@
 		01657F93242EFC1F0013A149 /* EditContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewModel.swift; sourceTree = "<group>"; };
 		01657F97242EFC3D0013A149 /* ContactDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailCoordinator.swift; sourceTree = "<group>"; };
 		01657F9B242EFC950013A149 /* AddContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactCoordinator.swift; sourceTree = "<group>"; };
-		01657F9D242EFCAF0013A149 /* EditCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCoordinator.swift; sourceTree = "<group>"; };
+		01657F9D242EFCAF0013A149 /* EditContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactCoordinator.swift; sourceTree = "<group>"; };
 		01657F9F242F3D380013A149 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		01657FA1242F52000013A149 /* ContactDeatilViewModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactDeatilViewModel+Extension.swift"; sourceTree = "<group>"; };
 		01657FA3242F77860013A149 /* ContactDetailViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactDetailViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -128,6 +135,13 @@
 		01D45BD82430435A00C56F84 /* ImageDownloaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderTest.swift; sourceTree = "<group>"; };
 		01D45BDA2430472900C56F84 /* LoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderTest.swift; sourceTree = "<group>"; };
 		01D45BDC2430494900C56F84 /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
+		01D45BE424308A1500C56F84 /* ContactViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModelTest.swift; sourceTree = "<group>"; };
+		01D45BE62430914C00C56F84 /* testContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testContactData.swift; sourceTree = "<group>"; };
+		01D45BEA243097C600C56F84 /* MockedContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedContactService.swift; sourceTree = "<group>"; };
+		01D45BEC2430AB8600C56F84 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		01D91F952430C3950098B9E1 /* AddContactTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactTest.swift; sourceTree = "<group>"; };
+		01D91F972430CAE40098B9E1 /* EditContactViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewModelTest.swift; sourceTree = "<group>"; };
+		01D91F992430CE4A0098B9E1 /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
 		01F51CDF242DD60D001A7503 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,6 +209,7 @@
 		013C9ABA242D92B600785A3F /* ContactsTests */ = {
 			isa = PBXGroup;
 			children = (
+				01D45BE82430978800C56F84 /* ServiceTest */,
 				01D45BDE243049D900C56F84 /* ModulesTest */,
 				01657FAB242F92670013A149 /* CommonTests */,
 				013C9ABB242D92B600785A3F /* ContactsTests.swift */,
@@ -315,6 +330,7 @@
 				01657F9F242F3D380013A149 /* ImagePicker.swift */,
 				01657FA5242F799D0013A149 /* Constants.swift */,
 				01657FA7242F8EB50013A149 /* Validator.swift */,
+				01D45BEC2430AB8600C56F84 /* Errors.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -399,7 +415,7 @@
 		013C9AE8242D964C00785A3F /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				01657F9D242EFCAF0013A149 /* EditCoordinator.swift */,
+				01657F9D242EFCAF0013A149 /* EditContactCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -453,6 +469,7 @@
 				01D45BD82430435A00C56F84 /* ImageDownloaderTest.swift */,
 				01D45BDA2430472900C56F84 /* LoaderTest.swift */,
 				01D45BDC2430494900C56F84 /* ExtensionTests.swift */,
+				01D91F992430CE4A0098B9E1 /* CommonTests.swift */,
 			);
 			path = CommonTests;
 			sourceTree = "<group>";
@@ -478,6 +495,8 @@
 		01D45BE024304A0900C56F84 /* ContactList */ = {
 			isa = PBXGroup;
 			children = (
+				01D45BE324308A0700C56F84 /* ContactViewModel */,
+				01D45BE62430914C00C56F84 /* testContactData.swift */,
 			);
 			path = ContactList;
 			sourceTree = "<group>";
@@ -485,6 +504,7 @@
 		01D45BE124304A0900C56F84 /* EditContact */ = {
 			isa = PBXGroup;
 			children = (
+				01D91F972430CAE40098B9E1 /* EditContactViewModelTest.swift */,
 			);
 			path = EditContact;
 			sourceTree = "<group>";
@@ -492,8 +512,33 @@
 		01D45BE224304A0900C56F84 /* AddContact */ = {
 			isa = PBXGroup;
 			children = (
+				01D91F952430C3950098B9E1 /* AddContactTest.swift */,
 			);
 			path = AddContact;
+			sourceTree = "<group>";
+		};
+		01D45BE324308A0700C56F84 /* ContactViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01D45BE424308A1500C56F84 /* ContactViewModelTest.swift */,
+			);
+			path = ContactViewModel;
+			sourceTree = "<group>";
+		};
+		01D45BE82430978800C56F84 /* ServiceTest */ = {
+			isa = PBXGroup;
+			children = (
+				01D45BE92430979700C56F84 /* ContactServiceTest */,
+			);
+			path = ServiceTest;
+			sourceTree = "<group>";
+		};
+		01D45BE92430979700C56F84 /* ContactServiceTest */ = {
+			isa = PBXGroup;
+			children = (
+				01D45BEA243097C600C56F84 /* MockedContactService.swift */,
+			);
+			path = ContactServiceTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -663,8 +708,9 @@
 				01657F8E242EFBB70013A149 /* AddContactViewController.swift in Sources */,
 				01657F36242DFFC90013A149 /* URLCoder.swift in Sources */,
 				01657F44242E490F0013A149 /* Storyboarded.swift in Sources */,
+				01D45BED2430AB8600C56F84 /* Errors.swift in Sources */,
 				01657FA6242F799D0013A149 /* Constants.swift in Sources */,
-				01657F9E242EFCAF0013A149 /* EditCoordinator.swift in Sources */,
+				01657F9E242EFCAF0013A149 /* EditContactCoordinator.swift in Sources */,
 				01657FB3242FD1CF0013A149 /* EditContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,10 +720,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				01657FAF242F92920013A149 /* ValidatorTests.swift in Sources */,
+				01D45BE72430914C00C56F84 /* testContactData.swift in Sources */,
 				01D45BD92430435A00C56F84 /* ImageDownloaderTest.swift in Sources */,
+				01D91F962430C3950098B9E1 /* AddContactTest.swift in Sources */,
 				01D45BDB2430472900C56F84 /* LoaderTest.swift in Sources */,
 				01D45BDD2430494900C56F84 /* ExtensionTests.swift in Sources */,
+				01D45BEB243097C600C56F84 /* MockedContactService.swift in Sources */,
+				01D91F982430CAE40098B9E1 /* EditContactViewModelTest.swift in Sources */,
 				013C9ABC242D92B600785A3F /* ContactsTests.swift in Sources */,
+				01D45BE524308A1500C56F84 /* ContactViewModelTest.swift in Sources */,
+				01D91F9A2430CE4A0098B9E1 /* CommonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

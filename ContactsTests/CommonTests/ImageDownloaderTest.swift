@@ -25,7 +25,7 @@ class ImageDownloaderTest: XCTestCase {
     }
 
     
-    func testImagedownloadFailure() {
+    func testImagedownloadFailure_withInvalidImageURL() {
         let expectation = self.expectation(description: "testing download image Failur")
         var downloadedImage :   UIImage?
         let testUrl = "https://test.png"
@@ -34,18 +34,31 @@ class ImageDownloaderTest: XCTestCase {
             expectation.fulfill()
         }
         waitForExpectations(timeout: 15, handler: nil)
-        XCTAssertNil(downloadedImage, "Image not downloaded")
+        XCTAssertNil(downloadedImage)
     }
     
-    func testImagedownloadSuccess() {
+    func testImagedownloadFailure_WithEmptyImageURL() {
         let expectation = self.expectation(description: "testing download image success")
         var downloadedImage :   UIImage?
-        let testUrl = "https://test.png"
+        let testUrl = ""
+        imageDownloader.downloadImage(imageUrl: testUrl) { (image, error) in
+            downloadedImage =   image
+        }
+        expectation.fulfill()
+        waitForExpectations(timeout: 15, handler: nil)
+        XCTAssertNil(downloadedImage)
+    }
+    
+    func testImageDownloadSuccess_WithValidImageURl() {
+        let expectation = self.expectation(description: "testing download image success")
+        var downloadedImage :   UIImage?
+        let testUrl = "http://gojek-contacts-app.herokuapp.com/images/missing.png"
         imageDownloader.downloadImage(imageUrl: testUrl) { (image, error) in
             downloadedImage =   image
             expectation.fulfill()
         }
+        
         waitForExpectations(timeout: 15, handler: nil)
-        XCTAssertNotNil(downloadedImage, "Image downloaded")
+        XCTAssertNotNil(downloadedImage)
     }
 }

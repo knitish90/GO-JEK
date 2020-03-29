@@ -15,7 +15,7 @@ protocol ResponseProtocol {
 }
 
 
-struct Response : ResponseProtocol {
+struct ResponseHandler : ResponseProtocol {
     func parseResponse<T>(_ data: Data?, _ error: Error?, _ completion: (T?, Error?) -> Void) where T : Decodable, T : Encodable {
         var response : T?
         if error == nil {

@@ -1,5 +1,5 @@
 //
-//  AddContactCoordinator.swift
+//  EditCoordinator.swift
 //  Contacts
 //
 //  Created by Nitish.kumar on 28/03/20.
@@ -9,12 +9,8 @@
 import Foundation
 import UIKit
 
-protocol AddContactsCoordinatorProtocol: class {
-    func navigateToPreviousPage()
-    
-}
 
-class AddContactsCoordinator : Coordinator {
+class EditContactsCoordinator : Coordinator {
     var childCoordinators: [Coordinator] = []
     weak var navigationController:UINavigationController?
     
@@ -25,7 +21,7 @@ class AddContactsCoordinator : Coordinator {
     }
     
     func start() {
-        let controller = AddContactViewController.instance()
+        let controller = EditContactViewController.instance()
         let viewModel = AddContactViewModel(service: ContactService(httpClient: HTTPClient()))
         controller.viewModel    =   viewModel
         controller.delegate =   self
@@ -33,7 +29,7 @@ class AddContactsCoordinator : Coordinator {
     }
 }
 
-extension AddContactsCoordinator :  AddContactsCoordinatorProtocol {
+extension EditContactsCoordinator :  AddContactsCoordinatorProtocol {
     func navigateToPreviousPage() {
         self.navigationController?.dismiss(animated: true, completion: {
             self.childCoordinators.removeLast()

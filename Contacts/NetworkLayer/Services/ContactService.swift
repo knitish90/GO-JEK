@@ -17,17 +17,17 @@ protocol ContactServiceProtocol {
 }
 
 
-struct ContactService : ContactServiceProtocol {
+class ContactService : ContactServiceProtocol {
     
     var httpClient : HTTPClientProtocol
     
-    init(httpClient : HTTPClientProtocol) {
+    required init(httpClient : HTTPClientProtocol) {
         self.httpClient  =   httpClient
     }
     
     func getContacts(completion: @escaping (Error?, [Contact]) -> Void) {
         httpClient.getData(urlString: EndPoint.Contacts.getContacts) { (data, error) in
-            Response().parseResponse(data, error) { (contactList, error) in
+            ResponseHandler().parseResponse(data, error) { (contactList, error) in
                 completion(error,contactList ?? [])
             }
         }
@@ -37,7 +37,7 @@ struct ContactService : ContactServiceProtocol {
         let urlString = EndPoint.Contacts.contactDetails.replace(of: "{contactId}", with: "\(contactId)")
                 
         httpClient.getData(urlString: urlString) { (data, error) in
-            Response().parseResponse(data, error) { (contact, error) in
+            ResponseHandler().parseResponse(data, error) { (contact, error) in
                 completion(error, contact)
             }
         }
@@ -46,7 +46,7 @@ struct ContactService : ContactServiceProtocol {
     func addContact(_ contact: Contact, _ completion : @escaping (_ error: Error?, _ contact : Contact?) -> Void) {
         let urlString = EndPoint.Contacts.addContacts
         httpClient.postData(urlString: urlString, body: contact.encode()) { (data, error) in
-            Response().parseResponse(data, error) { (contact, error) in
+            ResponseHandler().parseResponse(data, error) { (contact, error) in
                 completion(error, contact)
             }
         }
@@ -55,7 +55,7 @@ struct ContactService : ContactServiceProtocol {
     func updateContact(_ contact: Contact, _ completion : @escaping (_ error: Error?, _ contact : Contact?) -> Void) {
         let urlString = EndPoint.Contacts.contactDetails.replace(of: "{contactId}", with: "\(contact.id)")
         httpClient.updateData(urlString: urlString, body: contact.encode()) { (data, error) in
-            Response().parseResponse(data, error) { (contact, error) in
+            ResponseHandler().parseResponse(data, error) { (contact, error) in
                 completion(error, contact)
             }
         }

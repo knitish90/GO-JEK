@@ -18,7 +18,7 @@ class AddContactViewController: BaseViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var topBackgroundView: UIView!
-    weak var delegate : AddCoordinatorProtocol?
+    weak var delegate : AddContactsCoordinatorProtocol?
     var tapperGesture : UITapGestureRecognizer!
     
     var viewModel : AddContactViewModelProtocol!

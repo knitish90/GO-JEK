@@ -19,6 +19,8 @@ class ContactDetailViewController: BaseViewController {
     @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     
+    weak var delegate : ContactDetailCoordinatorDelegate?
+    
     var navigationImage : UIImage?
     
     override func viewDidLoad() {
@@ -70,7 +72,7 @@ class ContactDetailViewController: BaseViewController {
     }
     
     @objc func editContactButtonTapped() {
-        
+        delegate?.moveToContactEdit()
     }
     
     @IBAction func messageButtonTapped(_ sender: Any) {

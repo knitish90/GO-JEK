@@ -30,4 +30,8 @@ struct Constants {
         static var ContactEdited    =   "ContactEdited"
         
     }
+    
+    struct NetworkError {
+        static let inValidURLError   =   "URL is not valid."
+    }
 }

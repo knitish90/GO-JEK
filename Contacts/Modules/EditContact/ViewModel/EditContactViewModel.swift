@@ -8,19 +8,35 @@
 
 import Foundation
 
-protocol EditContactVieModelProtocol {
+protocol EditContactVieModelProtocol : ContactDataBaseProtocol {
     init(service : ContactServiceProtocol)
     func editContact()
+    var didLoadingFailed : ((_ error : Error?) -> Void)? { get set}
+    var didLoadingSuccess : (()-> Void)? { get set}
 }
-class EditContactViewModel : EditContactVieModelProtocol {
+class EditContactViewModel : BaseContactModel {
     var contactService : ContactServiceProtocol
+    
+    var didLoadingFailed : ((_ error : Error?) -> Void)?
+    var didLoadingSuccess : (()-> Void)?
     
     required init(service: ContactServiceProtocol) {
         self.contactService =   service
+        super.init(contact: Contact())
+        
     }
     
+  
     func editContact() {
-        //contactService.updateContact(<#T##contact: Contact##Contact#>, <#T##completion: (Error?, Contact?) -> Void##(Error?, Contact?) -> Void#>)
+        contactService.updateContact(self.contact) { (error, contact) in
+            DispatchQueue.main.async {
+                if error == nil, contact != nil {
+                    self.contact    =   contact!
+                    self.didLoadingSuccess?()
+                }else {
+                    self.didLoadingFailed?(error)
+                }
+            }
+        }
     }
-    
 }

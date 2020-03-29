@@ -43,4 +43,26 @@ class ExtensionTests: XCTestCase {
         XCTAssertEqual(firstChar, "N")
     }
 
+    func testReplaceStringSuccess() {
+        let name = "Nitish Kumar"
+        
+        let str = name.replace(of: "Nitish", with: "Bipin")
+        
+        XCTAssertNotNil(str)
+        XCTAssertEqual(str, "Bipin Kumar")
+    }
+    
+    func testEncodeSuccess() {
+        let contact = Contact()
+        let data = contact.encode()
+        
+        XCTAssertNotNil(data)
+    }
+    
+    func testDateFormatter() {
+        let format = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let formatter = format.dateFormatter()
+        
+        XCTAssertNotNil(formatter)
+    }
 }

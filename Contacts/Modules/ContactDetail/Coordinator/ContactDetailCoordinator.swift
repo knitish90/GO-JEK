@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+protocol ContactDetailCoordinatorDelegate : class{
+    func moveToContactEdit()
+}
+
+
 class ContactDetailCoordinator : Coordinator {
     var childCoordinators: [Coordinator] = []
     weak var navigationController : UINavigationController?
@@ -21,9 +26,16 @@ class ContactDetailCoordinator : Coordinator {
     func start() {
         let controller = ContactDetailViewController.instance()
         let viewModel = ContactDetailViewModel(contactId: contact.id, service: ContactService(httpClient: HTTPClient()))
-        controller.viewModel    =  viewModel
+        controller.viewModel    =   viewModel
+        controller.delegate     =   self
         self.navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    
+    }    
+}
+
+extension ContactDetailCoordinator : ContactDetailCoordinatorDelegate {
+    func moveToContactEdit() {
+        let coordinator = EditContactsCoordinator(navigationController: navigationController!)
+        coordinator.childCoordinators.append(coordinator)
+        coordinator.start()
+    }    
 }
