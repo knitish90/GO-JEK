@@ -15,12 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="9YG-Mv-k65">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9YG-Mv-k65">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactListCell" rowHeight="65" id="1Nn-Js-JCy" customClass="ContactListCell" customModule="Contacts" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="65"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Nn-Js-JCy" id="K3J-Qc-qGY">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
@@ -166,9 +165,9 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPj-yP-PRO">
-                                                                        <rect key="frame" x="0.0" y="52" width="57.5" height="14.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="0.0" y="52" width="57.5" height="15"/>
+                                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                                        <color key="textColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -200,9 +199,9 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-zZ-wU5">
-                                                                        <rect key="frame" x="0.0" y="52" width="57.5" height="14.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="0.0" y="52" width="57.5" height="15"/>
+                                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                                        <color key="textColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -234,9 +233,9 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-7d-rzD">
-                                                                        <rect key="frame" x="0.0" y="52" width="57.5" height="14.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="0.0" y="52" width="57.5" height="15"/>
+                                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                                        <color key="textColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -269,9 +268,9 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="favourite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmh-o8-57E">
-                                                                        <rect key="frame" x="0.0" y="52" width="57.5" height="14.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="0.0" y="52" width="57.5" height="15"/>
+                                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                                        <color key="textColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -323,19 +322,19 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="56"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5B-9r-5t9">
-                                                                <rect key="frame" x="25" y="17" width="51.5" height="21"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="25" y="17" width="55" height="21"/>
+                                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                                <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+91 7022259352" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6q-M3-9ZM">
-                                                                <rect key="frame" x="101.5" y="17" width="149.5" height="21"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="105" y="17" width="146" height="21"/>
+                                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="B5B-9r-5t9" secondAttribute="bottom" constant="18" id="6x0-E3-OuG"/>
                                                             <constraint firstAttribute="trailing" secondItem="A6q-M3-9ZM" secondAttribute="trailing" constant="29" id="YOt-gd-vmJ"/>
@@ -354,18 +353,18 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" priority="100" constant="51.5" id="jTe-Fu-7LQ"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                                <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nk@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-SY-pbC">
                                                                 <rect key="frame" x="101.5" y="17" width="149.5" height="21"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="hxg-SY-pbC" secondAttribute="bottom" constant="18" id="DJ7-9r-eJf"/>
                                                             <constraint firstItem="hxg-SY-pbC" firstAttribute="top" secondItem="o0N-Li-JLa" secondAttribute="top" constant="17" id="GQo-V5-g49"/>
@@ -382,7 +381,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="mCu-bd-o7R" secondAttribute="bottom" constant="58" id="2WD-7Z-grY"/>
                                             <constraint firstAttribute="trailing" secondItem="mCu-bd-o7R" secondAttribute="trailing" constant="20" symbolic="YES" id="2m8-sd-WkG"/>
@@ -394,6 +393,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="exd-Qf-5Pf" firstAttribute="top" secondItem="8lg-a0-JyV" secondAttribute="top" id="41f-FH-QW9"/>
                                     <constraint firstItem="exd-Qf-5Pf" firstAttribute="leading" secondItem="8lg-a0-JyV" secondAttribute="leading" id="7A7-SD-2AH"/>
@@ -526,9 +526,12 @@
                                                                 <rect key="frame" x="123" y="11" width="142" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="CmM-A6-ljo" id="nvw-8b-tS1"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="tc2-5x-BdX" secondAttribute="trailing" constant="15" id="3F1-Ub-vkt"/>
                                                             <constraint firstItem="MDU-PK-w5h" firstAttribute="leading" secondItem="ITs-JC-K4d" secondAttribute="leading" constant="8" id="cYR-bc-7hy"/>
@@ -554,9 +557,12 @@
                                                                 <rect key="frame" x="123" y="11" width="142" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="CmM-A6-ljo" id="pZk-qT-7D2"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="5rN-74-27t" firstAttribute="centerY" secondItem="InC-wM-sfL" secondAttribute="centerY" id="Au6-V1-goU"/>
                                                             <constraint firstItem="WeW-cQ-8dj" firstAttribute="centerY" secondItem="InC-wM-sfL" secondAttribute="centerY" id="HTM-gj-TAE"/>
@@ -581,10 +587,13 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eki-2h-8g7">
                                                                 <rect key="frame" x="123" y="11" width="142" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="CmM-A6-ljo" id="cp6-Da-H88"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="Eki-2h-8g7" firstAttribute="centerY" secondItem="Bcb-fA-JXG" secondAttribute="centerY" id="BCz-cv-ItX"/>
                                                             <constraint firstItem="NQj-F1-5Hp" firstAttribute="leading" secondItem="Bcb-fA-JXG" secondAttribute="leading" constant="8" id="MlN-mx-JkD"/>
@@ -609,10 +618,13 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p3j-W7-S4z">
                                                                 <rect key="frame" x="123" y="11" width="142" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="CmM-A6-ljo" id="Kcc-1N-eui"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="5VK-bQ-Xdd" firstAttribute="centerY" secondItem="HbR-Gb-XYd" secondAttribute="centerY" id="0ok-kF-aYE"/>
                                                             <constraint firstItem="p3j-W7-S4z" firstAttribute="leading" secondItem="5VK-bQ-Xdd" secondAttribute="trailing" constant="15" id="7QB-8z-8Or"/>
@@ -623,12 +635,13 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="224" id="EXH-Op-hh3"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="XEd-ma-ai5" firstAttribute="leading" secondItem="uHs-kU-7GA" secondAttribute="leading" constant="20" symbolic="YES" id="IEB-Ea-Pwj"/>
                                             <constraint firstAttribute="trailing" secondItem="XEd-ma-ai5" secondAttribute="trailing" constant="20" symbolic="YES" id="PNV-b3-EQq"/>
@@ -666,6 +679,7 @@
                         <outlet property="lastNameTextField" destination="WeW-cQ-8dj" id="d25-Fa-QiF"/>
                         <outlet property="mobileTextField" destination="Eki-2h-8g7" id="qb8-kc-7YF"/>
                         <outlet property="profileImageView" destination="asz-p0-Tvl" id="erV-mK-6lo"/>
+                        <outlet property="scrollView" destination="bd5-By-JVx" id="WIh-2t-5F4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MF-jh-7Dv" sceneMemberID="firstResponder"/>

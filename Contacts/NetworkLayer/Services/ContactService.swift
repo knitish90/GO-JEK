@@ -12,13 +12,12 @@ protocol ContactServiceProtocol {
     init(httpClient : HTTPClientProtocol)
     func getContacts(completion : @escaping (Error?, [Contact]) -> Void)
     func contactDetails(contactId : Int, completion : @escaping (Error?, Contact?)->Void)
+    func addContact(_ contact: Contact, _ completion : @escaping (_ error: Error?, _ contact : Contact?) -> Void)
     func updateContact(_ contact: Contact, _ completion : @escaping (_ error: Error?, _ contact : Contact?) -> Void)
 }
 
 
 struct ContactService : ContactServiceProtocol {
-    
-    
     
     var httpClient : HTTPClientProtocol
     
@@ -42,6 +41,10 @@ struct ContactService : ContactServiceProtocol {
                 completion(error, contact)
             }
         }
+    }
+    
+    func addContact(_ contact: Contact, _ completion : @escaping (_ error: Error?, _ contact : Contact?) -> Void) {
+        
     }
     
     func updateContact(_ contact: Contact, _ completion : @escaping (_ error: Error?, _ contact : Contact?) -> Void) {

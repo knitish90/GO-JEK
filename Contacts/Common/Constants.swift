@@ -15,10 +15,9 @@ struct Constants {
         static let emailSendingError    =   "Couldn't send the mail, please try after some time."
     }
     struct ValidationError {
-        static let invalidEmailError    =   "Entered email is not valid, please enter correctly."
-        static let invalidPhoneError    =   "Entered Phone is not Correct, please enter correctly."
-        static let firstNameEmptyError  =   "First Name can't be empty, please enter correct name."
-        static let lastNameEmptyError   =   "Last Name can't be empty, please enter correct name."
-        
+        static let invalidEmailError    =   "please enter valid email."
+        static let invalidPhoneError    =   "please enter valid phone number."
+        static let firstNameEmptyError  =   "please enter your first name."
+        static let lastNameEmptyError   =   "please enter your last name."
     }
 }

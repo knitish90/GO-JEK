@@ -26,6 +26,8 @@ class AddContactsCoordinator : Coordinator {
     
     func start() {
         let controller = AddContactViewController.instance()
+        let viewModel = AddContactViewModel(service: ContactService(httpClient: HTTPClient()))
+        controller.viewModel    =   viewModel
         controller.delegate =   self
         self.navigationController?.present(UINavigationController(rootViewController: controller), animated: true, completion: nil)
     }

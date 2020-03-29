@@ -9,10 +9,32 @@
 import Foundation
 
 
-protocol AddContactViewModelProtocol {
+protocol AddContactViewModelProtocol  {
+    init(service : ContactServiceProtocol)
+    var contact : Contact! { get set }
     
+    func viewDidLoad()
+    func addContact()
 }
 
-class AddContactViewModel {
+class AddContactViewModel : AddContactViewModelProtocol{
+    var contactService : ContactServiceProtocol
+    var contact : Contact!
+    
+    required init(service: ContactServiceProtocol) {
+        self.contactService =   service
+    }
+    
+    func viewDidLoad() {
+        addContact()
+    }
+    
+    func addContact() {
+        contactService.addContact(contact) { (error, contact) in
+            
+        }
+    }
+    
+    
     
 }

@@ -39,6 +39,11 @@ class ContactListViewController: BaseViewController {
 
     func configureUI() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContactTapped))
+        setHeaderTitle()
+    }
+    
+    func setHeaderTitle() {
+        self.title =   "Contacts"
     }
     
     @objc func addContactTapped() {
