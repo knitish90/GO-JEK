@@ -72,7 +72,7 @@ class ContactDetailViewController: BaseViewController {
     }
     
     @objc func editContactButtonTapped() {
-        delegate?.moveToContactEdit()
+        delegate?.moveToContactEdit(detailViewModel: viewModel)
     }
     
     @IBAction func messageButtonTapped(_ sender: Any) {

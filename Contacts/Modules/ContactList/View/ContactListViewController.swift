@@ -23,7 +23,7 @@ class ContactListViewController: BaseViewController {
 
     override func bindViewModel() {
         viewModel.viewDidLoad()
-        self.view.showLoader(with: "Loading Contacts")
+        self.view.showLoader()
         
         viewModel?.didContactsLoaded = {
             self.view.hideLoader()

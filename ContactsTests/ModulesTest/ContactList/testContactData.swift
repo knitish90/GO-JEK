@@ -10,27 +10,89 @@ import Foundation
 
 let testContactsJson = """
 [
-  {
-    "id": 1,
-    "first_name": "Sachin",
-    "last_name": "Singh",
-    "email": "ss@bachchan.com",
-    "phone_number": "+919984423412",
-    "profile_pic": "https://contacts-app.s3-ap-southeast-1.amazonaws.com/contacts/profile_pics/000/000/007/original/ab.jpg?1464516610",
-    "favorite": true,
-    "created_at": "2016-04-29T10:10:10.995Z",
-    "updated_at": "2016-06-29T10:10:10.995Z"
-  },
-  {
-    "id": 2,
-    "first_name": "Amitabh",
-    "last_name": "Bachchan",
-    "email": "ab@bachchan.com",
-    "phone_number": "+919980123412",
-    "profile_pic": "https://contacts-app.s3-ap-southeast-1.amazonaws.com/contacts/profile_pics/000/000/007/original/ab.jpg?1464516610",
-    "favorite": false,
-    "created_at": "2016-05-29T10:10:10.995Z",
-    "updated_at": "2016-05-29T10:10:10.995Z"
-  }
+   {
+      "id":16304,
+      "first_name":"002",
+      "last_name":"drop",
+      "profile_pic":"/images/missing.png",
+      "favorite":true,
+      "url":"http://gojek-contacts-app.herokuapp.com/contacts/16304.json"
+   },
+   {
+      "id":17620,
+      "first_name":"98",
+      "last_name":"singh",
+      "profile_pic":"/images/missing.png",
+      "favorite":false,
+      "url":"http://gojek-contacts-app.herokuapp.com/contacts/17620.json"
+   },
+   {
+      "id":17430,
+      "first_name":"firsrttt",
+      "last_name":"lastn11",
+      "profile_pic":"/images/missing.png",
+      "favorite":true,
+      "url":"http://gojek-contacts-app.herokuapp.com/contacts/17430.json"
+   },
+   {
+      "id":17427,
+      "first_name":"firsrttt",
+      "last_name":"lastn11",
+      "profile_pic":"/images/missing.png",
+      "favorite":true,
+      "url":"http://gojek-contacts-app.herokuapp.com/contacts/17427.json"
+   },
+   {
+      "id":17428,
+      "first_name":"firsrttt",
+      "last_name":"lastn11",
+      "profile_pic":"/images/missing.png",
+      "favorite":false,
+      "url":"http://gojek-contacts-app.herokuapp.com/contacts/17428.json"
+   },
+   {
+      "id":17429,
+      "first_name":"firsrttt",
+      "last_name":"lastn11",
+      "profile_pic":"/images/missing.png",
+      "favorite":true,
+      "url":"http://gojek-contacts-app.herokuapp.com/contacts/17429.json"
+   },
+   {
+      "id":16661,
+      "first_name":"First",
+      "last_name":"Last N",
+      "profile_pic":"/images/missing.png",
+      "favorite":true,
+      "url":"http://gojek-contacts-app.herokuapp.com/contacts/16661.json"
+   },
+   {
+      "id":17176,
+      "first_name":"First",
+      "last_name":"Last N",
+      "profile_pic":"/images/missing.png",
+      "favorite":true,
+      "url":"http://gojek-contacts-app.herokuapp.com/contacts/17176.json"
+   },
+   {
+      "id":17397,
+      "first_name":"happy ",
+      "last_name":"to hear",
+      "profile_pic":"/images/missing.png",
+      "favorite":false,
+      "url":"http://gojek-contacts-app.herokuapp.com/contacts/17397.json"
+   }
 ]
+"""
+
+
+let testContactsDetailJson = """
+  {
+     "id":1,
+     "first_name":"Nitish",
+     "last_name":"Kumar",
+     "profile_pic":"/images/missing.png",
+     "favorite":true,
+     "url":"http://gojek-contacts-app.herokuapp.com/contacts/17176.json"
+  }
 """

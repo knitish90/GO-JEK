@@ -11,12 +11,13 @@ import XCTest
 
 class ContactViewModelTest: XCTestCase {
 
-    //var expectation : XCTestExpectation!
+    var expectation : XCTestExpectation!
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        //expectation = self.expectation(description: "It should fetch contacts")
+        self.expectation = self.expectation(description: "It should fetch contacts fdfsdfsd")
+        self.expectation.expectedFulfillmentCount = 2
     }
 
     override func tearDown() {
@@ -24,40 +25,47 @@ class ContactViewModelTest: XCTestCase {
     }
 
     
-    func testLoadContacts() {
-        let expectation = self.expectation(description: "It should fetch contacts")
+    func testLoadContacts_Success() {
+        
         let contactService = MockedContactService(contactString: testContactsJson)
         let viewModel = ContactListViewModel(service: contactService)
         viewModel.fetchContacts()
-        expectation.fulfill()
-        waitForExpectations(timeout: 15, handler: nil)
-        XCTAssert(viewModel.numberOfSections() == 0)
+        
+        viewModel.didContactsLoaded = {
+            self.expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(viewModel.numberOfSections() > 0)
     }
     
-    func testLoadContactsError() {
-        let expectation = self.expectation(description: "It should fetch contacts")
+    func testLoadContacts_Failure() {
         let contactService = MockedContactService(contactString: nil)
         let viewModel = ContactListViewModel(service: contactService)
         viewModel.fetchContacts()
-        expectation.fulfill()
-        waitForExpectations(timeout: 15, handler: nil)
-
+        
+        viewModel.didContactsFailed = { error in
+            self.expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
         XCTAssert(viewModel.numberOfSections() == 0)
     }
     
-    func testPrepareSections() {
-        let expectation = self.expectation(description: "It should fetch contacts")
+    func testPrepareSections_Success() {
         let contactService = MockedContactService(contactString: testContactsJson)
         let viewModel = ContactListViewModel(service: contactService)
         viewModel.fetchContacts()
-        expectation.fulfill()
-        waitForExpectations(timeout: 15, handler: nil)
-
-        XCTAssert(viewModel.numberOfSections() == 0)
+        
+        viewModel.didContactsLoaded = {
+            self.expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(viewModel.numberOfSections() > 0)
     }
     
     func testContactViewModelProperties() {
-        let expectation = self.expectation(description: "It should fetch contacts")
         let contactService = MockedContactService(contactString: testContactsJson)
         let viewModel = ContactListViewModel(service: contactService)
         

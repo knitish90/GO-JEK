@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol ContactDetailCoordinatorDelegate : class{
-    func moveToContactEdit()
+    func moveToContactEdit(detailViewModel: ContactDetailViewModelProtocol)
 }
 
 
@@ -33,9 +33,11 @@ class ContactDetailCoordinator : Coordinator {
 }
 
 extension ContactDetailCoordinator : ContactDetailCoordinatorDelegate {
-    func moveToContactEdit() {
+    func moveToContactEdit(detailViewModel: ContactDetailViewModelProtocol) {
         let coordinator = EditContactsCoordinator(navigationController: navigationController!)
+        coordinator.detailViewModel =   detailViewModel
         coordinator.childCoordinators.append(coordinator)
         coordinator.start()
-    }    
+    }
+    
 }

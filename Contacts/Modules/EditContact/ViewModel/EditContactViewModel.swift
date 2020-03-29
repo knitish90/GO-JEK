@@ -14,7 +14,7 @@ protocol EditContactVieModelProtocol : ContactDataBaseProtocol {
     var didLoadingFailed : ((_ error : Error?) -> Void)? { get set}
     var didLoadingSuccess : (()-> Void)? { get set}
 }
-class EditContactViewModel : BaseContactModel {
+class EditContactViewModel : BaseContactModel, EditContactVieModelProtocol {
     var contactService : ContactServiceProtocol
     
     var didLoadingFailed : ((_ error : Error?) -> Void)?

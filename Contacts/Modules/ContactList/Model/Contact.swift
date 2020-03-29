@@ -13,9 +13,12 @@ import Foundation
 
 struct Contact: Codable {
     var id: Int
-    var firstName, lastName, email, phoneNumber: String!
-    var profilePic: String!
-    var favourite: Bool!
+    var firstName   =   ""
+    var lastName    =   ""
+    var email       =   ""
+    var phoneNumber =   ""
+    var profilePic  =   ""
+    var favourite   =   false
     var createdAt, updatedAt: String!
 
     var profileImaeURl: String {

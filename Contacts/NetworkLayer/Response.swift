@@ -17,10 +17,13 @@ protocol ResponseProtocol {
 
 struct ResponseHandler : ResponseProtocol {
     func parseResponse<T>(_ data: Data?, _ error: Error?, _ completion: (T?, Error?) -> Void) where T : Decodable, T : Encodable {
+        guard let data = data else {
+            return completion(nil, Errors(message: Constants.NetworkError.inValidURLError))
+        }
         var response : T?
         if error == nil {
             do {
-                response = try JSONDecoder().decode(T.self, from: data!)
+                response = try JSONDecoder().decode(T.self, from: data)
                 completion(response, nil)
             } catch let error  {
                 completion(nil, error)

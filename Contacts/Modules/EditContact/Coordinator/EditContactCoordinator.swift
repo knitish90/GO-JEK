@@ -15,6 +15,7 @@ class EditContactsCoordinator : Coordinator {
     weak var navigationController:UINavigationController?
     
     weak var delegate : AddContactsCoordinatorProtocol?
+    var detailViewModel : ContactDetailViewModelProtocol!
     
     required init(navigationController: UINavigationController) {
         self.navigationController   =   navigationController
@@ -22,8 +23,9 @@ class EditContactsCoordinator : Coordinator {
     
     func start() {
         let controller = EditContactViewController.instance()
-        let viewModel = AddContactViewModel(service: ContactService(httpClient: HTTPClient()))
-        controller.viewModel    =   viewModel
+        let viewModel = EditContactViewModel(service: ContactService(httpClient: HTTPClient()))
+        controller.contactDetailViewModel   =   detailViewModel
+        controller.editViewModel    =   viewModel
         controller.delegate =   self
         self.navigationController?.present(UINavigationController(rootViewController: controller), animated: true, completion: nil)
     }

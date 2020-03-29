@@ -10,22 +10,47 @@ import UIKit
 
 class EditContactViewController: AddContactViewController {
 
+    var editViewModel : EditContactVieModelProtocol!
+    var contactDetailViewModel : ContactDetailViewModelProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        updateUI()
     }
     
     func updateUI() {
-        
+        firstNameTextField.text =   contactDetailViewModel.firstName
+        lastNameTextField.text  =   contactDetailViewModel.lastName
+        mobileTextField.text    =   contactDetailViewModel.phone
+        emailTextField.text     =   contactDetailViewModel.emailId
+        profileImageView.setImage(with: contactDetailViewModel.profileUrl)
     }
     
     override func doneButtonTapped() {
-        print("done")
-    }
-    
-    override func cancelButtonTapped() {
         
+        editViewModel.id            =   contactDetailViewModel.id
+        editViewModel.firstName     =   firstNameTextField.text ?? ""
+        editViewModel.lastName      =   lastNameTextField.text ?? ""
+        editViewModel.phone         =   mobileTextField.text ?? ""
+        editViewModel.emailId       =   emailTextField.text ?? ""
+        editViewModel.profileUrl    =   ""
+        
+        self.view.showLoader()
+        editViewModel.editContact()
+        
+        editViewModel.didLoadingSuccess = {
+            self.view.hideLoader()
+            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotifificationName.NewContactAdded), object: nil)
+            self.delegate?.navigateToPreviousPage()
+        }
+        
+        editViewModel.didLoadingFailed = { error in
+            self.view.hideLoader()
+            self.showAlert(error?.localizedDescription)
+        }
     }
     
     deinit {
