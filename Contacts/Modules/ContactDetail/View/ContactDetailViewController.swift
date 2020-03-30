@@ -24,6 +24,7 @@ class ContactDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +69,14 @@ class ContactDetailViewController: BaseViewController {
         emailLabel.text     =   viewModel.emailId
         favouriteButton.isSelected  =   viewModel.isFavourite
         profileImageView.setImage(with: viewModel.profileUrl)
+    }
+    
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didContactEdited), name: NSNotification.Name(Constants.NotifificationName.ContactEdited), object: nil)
+    }
+    
+    @objc func didContactEdited() {
+        bindViewModel()
     }
     
     @objc private func editContactButtonTapped() {

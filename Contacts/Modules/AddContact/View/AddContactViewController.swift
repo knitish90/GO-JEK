@@ -37,6 +37,7 @@ class AddContactViewController: BaseViewController {
     }
   
     override func configureUI() {
+        navigationController?.navigationBar.tintColor   =   Constants.Colors.headerColor        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
         self.navigationItem.leftBarButtonItem?.accessibilityIdentifier  =   "AddContact_Cancel"
@@ -124,21 +125,6 @@ class AddContactViewController: BaseViewController {
     }
 }
 
-
-extension AddContactViewController : UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == mobileTextField {
-        
-            let currentCharacterCount = textField.text?.count ?? 0
-            if (range.length + range.location > currentCharacterCount){
-                return false
-            }
-            let newLength = currentCharacterCount + string.count - range.length
-            return newLength <= 10
-        }
-        return true
-    }
-}
 
 extension AddContactViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

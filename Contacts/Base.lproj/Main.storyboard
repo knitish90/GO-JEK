@@ -561,7 +561,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WeW-cQ-8dj">
                                                                 <rect key="frame" x="123" y="10.5" width="197" height="35"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <accessibility key="accessibilityConfiguration" label="AddContact_LastName"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="AddContact_LastName" label="AddContact_LastName"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="AHe-xl-wn5"/>
                                                                 </constraints>
@@ -608,7 +608,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eki-2h-8g7">
                                                                 <rect key="frame" x="123" y="10.5" width="197" height="35"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <accessibility key="accessibilityConfiguration" label="AddContact_Mobile"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="AddContact_Mobile" label="AddContact_Mobile"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="fRZ-T2-njJ"/>
                                                                 </constraints>
@@ -655,7 +655,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p3j-W7-S4z">
                                                                 <rect key="frame" x="123" y="10.5" width="197" height="35"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <accessibility key="accessibilityConfiguration" label="AddContact_Email"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="AddContact_Email" label="AddContact_Email"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="8MT-Zl-Mn3"/>
                                                                 </constraints>

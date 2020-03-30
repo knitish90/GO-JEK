@@ -30,6 +30,7 @@ extension UIView {
         
         let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.frame = CGRect(x: 0, y: 0, width: loaderHeight, height: loaderHeight)
+        activityIndicator.color =   UIColor.white
         activityIndicator.startAnimating()
         
         effectView.contentView.addSubview(activityIndicator)

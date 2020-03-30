@@ -83,28 +83,23 @@ class ContactsUITests: XCTestCase {
         app.buttons["AddContactButton"].tap()
         
         let firstNameTextField = app.textFields["AddContact_FirstName"]
-        XCTAssertTrue(firstNameTextField.exists)
         firstNameTextField.tap()
         firstNameTextField.typeText("Bipin")
         
         let lastNameTextField = app.textFields["AddContact_LastName"]
-        XCTAssertTrue(lastNameTextField.exists)
         lastNameTextField.tap()
         lastNameTextField.typeText("kumar")
         
         let mobileTextField = app.textFields["AddContact_Mobile"]
-        XCTAssertTrue(mobileTextField.exists)
         mobileTextField.tap()
         mobileTextField.typeText("4794597855")
         
         let emailTextField = app.textFields["AddContact_Email"]
-        XCTAssertTrue(emailTextField.exists)
         emailTextField.tap()
         emailTextField.typeText("nk@gmail.com")
         
         
         let addContactButton = XCUIApplication().navigationBars.buttons["AddContact_Done"]
-        XCTAssert(addContactButton.exists)
         addContactButton.tap()
         
     }

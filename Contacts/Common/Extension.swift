@@ -36,12 +36,9 @@ extension UIImageView {
     }
 }
 
-extension UIApplication {
-    var isTestingEnvEnabled : Bool {
-        return (ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil)
-    }
+var isTestingEnvEnabled : Bool {
+    return (ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil)
 }
-
 
 extension UIViewController {
     func showAlert(_ message: String?){

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let windowScene = scene as? UIWindowScene {
             let navController = UINavigationController()
-
+            navController.navigationBar.tintColor   =   Constants.Colors.headerColor            
             let window = UIWindow(windowScene: windowScene)
             // send that into our coordinator so that it can display view controllers
             coordinator = ContactListCoordinator(navigationController: navController)
@@ -59,7 +59,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 

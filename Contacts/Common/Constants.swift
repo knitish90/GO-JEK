@@ -23,6 +23,7 @@ struct Constants {
     }
     struct Colors {
         static let appStandardColor     =   UIColor(red: 200.0/255.0, green: 227.0/255.0, blue: 220.0/255.0, alpha: 1.0)
+        static let headerColor     =   UIColor(red: 180.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0)
     }
     
     struct NotifificationName {
