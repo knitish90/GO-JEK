@@ -9,13 +9,13 @@
 import Foundation
 
 class Errors : Error {
-    var message : String
+    var message : String?
     
-    var localizedDescription: String {
+    var localizedDescription: String? {
         return self.message
     }
     
-    init(message : String) {
+    init(message : String?) {
         self.message    =   message
     }
 }

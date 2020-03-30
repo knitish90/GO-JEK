@@ -12,20 +12,18 @@ class ContactDetailViewController: BaseViewController {
 
     var viewModel : ContactDetailViewModelProtocol!
     
-    @IBOutlet weak var topBackgroudView: UIView!
-    @IBOutlet weak var mobileLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var favouriteButton: UIButton!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak private var topBackgroudView: UIView!
+    @IBOutlet weak private var mobileLabel: UILabel!
+    @IBOutlet weak private var emailLabel: UILabel!
+    @IBOutlet weak private var profileImageView: UIImageView!
+    @IBOutlet weak private var favouriteButton: UIButton!
+    @IBOutlet weak private var nameLabel: UILabel!
     
     weak var delegate : ContactDetailCoordinatorDelegate?
-    
-    var navigationImage : UIImage?
+    private var navigationImage : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,9 +59,10 @@ class ContactDetailViewController: BaseViewController {
 
     override func configureUI() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editContactButtonTapped))
+        self.navigationItem.rightBarButtonItem?.accessibilityIdentifier = "contactDetailEditButton"
     }
     
-    func updateUI() {
+    private func updateUI() {
         nameLabel.text      =   viewModel.fullName
         mobileLabel.text    =   viewModel.phone
         emailLabel.text     =   viewModel.emailId
@@ -71,23 +70,23 @@ class ContactDetailViewController: BaseViewController {
         profileImageView.setImage(with: viewModel.profileUrl)
     }
     
-    @objc func editContactButtonTapped() {
+    @objc private func editContactButtonTapped() {
         delegate?.moveToContactEdit(detailViewModel: viewModel)
     }
     
-    @IBAction func messageButtonTapped(_ sender: Any) {
+    @IBAction private func messageButtonTapped(_ sender: Any) {
         message(with: viewModel.phone)
     }
     
-    @IBAction func callButtonTapped(_ sender: Any) {
+    @IBAction private func callButtonTapped(_ sender: Any) {
         call(with: viewModel.phone)
     }
     
-    @IBAction func emailButtonTapped(_ sender: Any) {
+    @IBAction private func emailButtonTapped(_ sender: Any) {
         email(with: viewModel.emailId)
     }
     
-    @IBAction func favouriteButtonTapped(_ sender: Any) {
+    @IBAction private func favouriteButtonTapped(_ sender: Any) {
         viewModel.isFavourite   =   !viewModel.isFavourite
         viewModel.makeFavourite()
         

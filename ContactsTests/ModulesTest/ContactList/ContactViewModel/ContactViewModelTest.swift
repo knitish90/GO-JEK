@@ -17,7 +17,6 @@ class ContactViewModelTest: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         self.expectation = self.expectation(description: "It should fetch contacts fdfsdfsd")
-        self.expectation.expectedFulfillmentCount = 2
     }
 
     override func tearDown() {
@@ -36,7 +35,7 @@ class ContactViewModelTest: XCTestCase {
         }
         
         waitForExpectations(timeout: 10, handler: nil)
-        XCTAssert(viewModel.numberOfSections() > 0)
+        XCTAssert(viewModel.numberOfSections > 0)
     }
     
     func testLoadContacts_Failure() {
@@ -48,8 +47,8 @@ class ContactViewModelTest: XCTestCase {
             self.expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 10, handler: nil)
-        XCTAssert(viewModel.numberOfSections() == 0)
+        waitForExpectations(timeout: 15, handler: nil)
+        XCTAssert(viewModel.numberOfSections == 0)
     }
     
     func testPrepareSections_Success() {
@@ -62,7 +61,7 @@ class ContactViewModelTest: XCTestCase {
         }
         
         waitForExpectations(timeout: 10, handler: nil)
-        XCTAssert(viewModel.numberOfSections() > 0)
+        XCTAssert(viewModel.numberOfSections > 0)
     }
     
     func testContactViewModelProperties() {
@@ -70,9 +69,13 @@ class ContactViewModelTest: XCTestCase {
         let viewModel = ContactListViewModel(service: contactService)
         
         viewModel.fetchContacts()
-        expectation.fulfill()
-        waitForExpectations(timeout: 15, handler: nil)
         
-        XCTAssert(viewModel.numberOfSections() == 0)
+        viewModel.didContactsLoaded = {
+            self.expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        XCTAssert(viewModel.numberOfSections > 0)
     }
 }

@@ -8,14 +8,8 @@
 
 import Foundation
 
-typealias networkCompletion = ((_ data : Data?, _ error : Error?)-> Void)
-
-typealias Parameters = [String: String]
-public typealias Headers    = [String: Any]?
-
-enum ResponseType {
-    case success, fail
-}
+typealias networkCompletion = ((_ data : Data?, _ error : Errors?)-> Void)
+typealias Params = [String: String]
 
 
 protocol HTTPClientProtocol {
@@ -33,23 +27,31 @@ struct HTTPClient : HTTPClientProtocol {
         self.session = session
     }
     
-    func getData(urlString: String, completion:@escaping (Data?, Error?) -> Void) {
+    func getData(urlString: String, completion:@escaping (Data?, Errors?) -> Void) {
        
-        guard let url = URLEncoder().encodeUrl(urlString, [:]) else {
-            return completion(nil,nil)
+        if Reachability.isConnectedToNetwork() == false {
+            return completion(nil,Errors(message: Constants.NetworkError.internetConnectionError))
+        }
+        guard let url = URLEncoder().encode(urlString, [:]) else {
+            return completion(nil,Errors(message: Constants.NetworkError.inValidURLError))
         }
 
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.GET.rawValue
 
         session.dataTask(with: request) { (data, response, error) in
-            completion(data,error)
+            completion(data, nil)
         }.resume()
     }
     
     func postData(urlString: String, body: Data?, completion: @escaping networkCompletion) {
+        
+        if Reachability.isConnectedToNetwork() == false {
+            return completion(nil,Errors(message: Constants.NetworkError.internetConnectionError))
+        }
+        
         guard let url = URL(string: urlString) else {
-            return completion(nil,nil)
+            return completion(nil,Errors(message: Constants.NetworkError.inValidURLError))
         }
         
         var request = URLRequest(url: url)
@@ -57,13 +59,18 @@ struct HTTPClient : HTTPClientProtocol {
         request.httpBody    =   body
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         session.dataTask(with: request) { (data, response, error) in
-            completion(data,error)
+            completion(data, nil)
         }.resume()
     }
 
     func updateData(urlString: String, body: Data?, completion: @escaping networkCompletion) {
+        
+        if Reachability.isConnectedToNetwork() == false {
+            return completion(nil,Errors(message: Constants.NetworkError.internetConnectionError))
+        }
+        
         guard let url = URL(string: urlString) else {
-            return completion(nil,nil)
+            return completion(nil,Errors(message: Constants.NetworkError.inValidURLError))
         }
         
         var request = URLRequest(url: url)
@@ -71,7 +78,7 @@ struct HTTPClient : HTTPClientProtocol {
         request.httpBody    =   body
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         session.dataTask(with: request) { (data, response, error) in
-            completion(data,error)
+            completion(data, nil)
         }.resume()
     }
 }

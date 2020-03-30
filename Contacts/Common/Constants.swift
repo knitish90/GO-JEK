@@ -26,12 +26,17 @@ struct Constants {
     }
     
     struct NotifificationName {
-        static var NewContactAdded  =   "newAccountsAdded"
-        static var ContactEdited    =   "ContactEdited"
-        
+        static var NewContactAdded      =   "newAccountsAdded"
+        static var ContactEdited        =   "ContactEdited"
     }
     
     struct NetworkError {
-        static let inValidURLError   =   "URL is not valid."
+        static let inValidURLError      =   "URL is not valid."
+        static let internetConnectionError   =   "you are offline, please connect to the internet."
+        static let genericError         =   "something went wrong, please try after some time."
+    }
+    
+    struct DateFormat {
+        static let serverDateFormat     =   "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     }
 }

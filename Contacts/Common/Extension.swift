@@ -23,7 +23,6 @@ extension String {
         formatter.dateFormat = self
         return formatter
     }
-    
 }
 
 
@@ -56,8 +55,8 @@ extension UIViewController {
 
 extension Encodable {
     func encode()  -> Data? {
-        let encoder = JSONEncoder()
-        let format = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let encoder =   JSONEncoder()
+        let format  =   Constants.DateFormat.serverDateFormat
         JSONEncoder().dateEncodingStrategy = .formatted(format.dateFormatter())
         
         var data : Data?

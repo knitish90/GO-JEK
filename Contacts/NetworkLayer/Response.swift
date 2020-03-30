@@ -8,26 +8,28 @@
 
 import Foundation
 
-typealias responseComletion<T> = (_ object : T?, _ error : Error?)->Void
+typealias responseComletion<T> = (_ object : T?, _ error : Errors?)->Void
 
 protocol ResponseProtocol {
-    func  parseResponse <T : Codable> (_ data : Data?,_ error : Error?, _ completion : responseComletion<T>)
+    func  parseResponse <T : Codable> (_ data : Data?,_ error : Errors?, _ completion : responseComletion<T>)
 }
 
 
 struct ResponseHandler : ResponseProtocol {
-    func parseResponse<T>(_ data: Data?, _ error: Error?, _ completion: (T?, Error?) -> Void) where T : Decodable, T : Encodable {
-        guard let data = data else {
-            return completion(nil, Errors(message: Constants.NetworkError.inValidURLError))
-        }
-        var response : T?
+    func parseResponse<T>(_ data: Data?, _ error: Errors?, _ completion: (T?, Errors?) -> Void) where T : Codable {
+        
         if error == nil {
             do {
-                response = try JSONDecoder().decode(T.self, from: data)
+                guard let data = data else {
+                    return completion(nil, Errors(message: Constants.NetworkError.inValidURLError))
+                }
+                let response = try JSONDecoder().decode(T.self, from: data)
                 completion(response, nil)
             } catch let error  {
-                completion(nil, error)
+                completion(nil, Errors(message: error.localizedDescription))
             }
+        }else {
+            completion(nil, error)
         }
     }
 }

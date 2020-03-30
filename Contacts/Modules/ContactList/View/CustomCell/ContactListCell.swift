@@ -10,9 +10,9 @@ import UIKit
 
 class ContactListCell: CustomBaseCell {
     
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var favouriteButton: UIButton!
+    @IBOutlet weak private var profileImageView: UIImageView!
+    @IBOutlet weak private var nameLabel: UILabel!
+    @IBOutlet weak private var favouriteButton: UIButton!
     
     typealias T = ContactListCellViewModel
     override func awakeFromNib() {

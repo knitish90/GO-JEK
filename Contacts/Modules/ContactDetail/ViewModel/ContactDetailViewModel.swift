@@ -9,7 +9,6 @@
 import Foundation
 
 protocol ContactDetailViewModelProtocol : ContactDataBaseProtocol{
-    init(contactId : Int, service : ContactServiceProtocol)
     func viewDidLoad()
     func getContactDetails()
     func makeFavourite()

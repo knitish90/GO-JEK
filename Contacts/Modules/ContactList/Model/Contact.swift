@@ -44,15 +44,15 @@ struct Contact: Codable {
     
     init(from decoder: Decoder) throws {
         let container       =   try decoder.container(keyedBy: CodingKeys.self)
-        self.id             =   try container.parse(with: .id, defaultValue: 0)
-        self.firstName      =   try container.parse(with: .firstName, defaultValue: "")
-        self.lastName       =   try container.parse(with: .lastName, defaultValue: "")
-        self.email          =   try container.parse(with: .email, defaultValue: "")
-        self.phoneNumber    =   try container.parse(with: .phoneNumber, defaultValue: "")
-        self.profilePic     =   try container.parse(with: .profilePic, defaultValue: "")
-        self.favourite      =   try container.parse(with: .favourite, defaultValue: false)
-        self.createdAt      =   try container.parse(with: .createdAt, defaultValue: "" )
-        self.updatedAt      =   try container.parse(with: .updatedAt, defaultValue: "")
+        self.id             =   try container.parse(with: .id, Value: 0)
+        self.firstName      =   try container.parse(with: .firstName, Value: "")
+        self.lastName       =   try container.parse(with: .lastName, Value: "")
+        self.email          =   try container.parse(with: .email, Value: "")
+        self.phoneNumber    =   try container.parse(with: .phoneNumber, Value: "")
+        self.profilePic     =   try container.parse(with: .profilePic, Value: "")
+        self.favourite      =   try container.parse(with: .favourite, Value: false)
+        self.createdAt      =   try container.parse(with: .createdAt, Value: "" )
+        self.updatedAt      =   try container.parse(with: .updatedAt, Value: "")
         
     }
     
@@ -63,8 +63,7 @@ struct Contact: Codable {
 
 
 extension KeyedDecodingContainer {
-    func parse<T>(with key: K, defaultValue: T) throws -> T
-        where T : Decodable {
-            return try decodeIfPresent(T.self, forKey: key) ?? defaultValue
+    func parse<T>(with key: K, Value: T) throws -> T where T : Decodable {
+            return try decodeIfPresent(T.self, forKey: key) ?? Value
     }
 }

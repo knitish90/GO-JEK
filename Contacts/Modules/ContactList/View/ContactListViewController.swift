@@ -11,7 +11,7 @@ import UIKit
 
 class ContactListViewController: BaseViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     var viewModel       :   ContactListViewModelProtocol!
     weak var delegate   :   ContactListCoordinatorDelegate?
     
@@ -37,7 +37,9 @@ class ContactListViewController: BaseViewController {
     }
 
     override func configureUI() {
+        self.tableView.accessibilityIdentifier  =   "contactsListTableView"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContactTapped))
+        self.navigationItem.rightBarButtonItem?.accessibilityIdentifier =   "AddContactButton"
         setHeaderTitle()
     }
     
@@ -45,20 +47,20 @@ class ContactListViewController: BaseViewController {
         self.title =   "Contacts"
     }
     
-    @objc func addContactTapped() {
+    @objc private func addContactTapped() {
         delegate?.navigateToAddContactPage()
     }
     
-    func addObserver() {
+    private func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(didContactEdited), name: NSNotification.Name(Constants.NotifificationName.ContactEdited), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(newContactAdded), name: NSNotification.Name(Constants.NotifificationName.NewContactAdded), object: nil)
     }
     
-    @objc func didContactEdited() {
+    @objc private func didContactEdited() {
         bindViewModel()
     }
     
-    @objc func newContactAdded() {
+    @objc private func newContactAdded() {
         bindViewModel()
     }
 }
@@ -66,7 +68,7 @@ class ContactListViewController: BaseViewController {
 
 extension ContactListViewController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections()
+        return viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,7 +77,7 @@ extension ContactListViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactListCell") as! ContactListCell
-        cell.accessibilityIdentifier = "ContactListCell_\(indexPath.section)_\(indexPath.row)"
+        cell.accessibilityLabel = "ContactListCell_\(indexPath.section)_\(indexPath.row)"
         cell.configure(cellViewModel: viewModel.cellViewModel(for: indexPath))
            
         return cell

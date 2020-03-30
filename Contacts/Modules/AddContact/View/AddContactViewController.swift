@@ -10,12 +10,12 @@ import UIKit
 
 class AddContactViewController: BaseViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var mobileTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak private var scrollView: UIScrollView! 
+    @IBOutlet weak private var lastNameTextField: UITextField!
+    @IBOutlet weak private var firstNameTextField: UITextField!
+    @IBOutlet weak private var mobileTextField: UITextField!
+    @IBOutlet weak private var emailTextField: UITextField!
+    @IBOutlet weak private var profileImageView: UIImageView!
     
     @IBOutlet weak var topBackgroundView: UIView!
     weak var delegate : AddContactsCoordinatorProtocol?
@@ -39,6 +39,8 @@ class AddContactViewController: BaseViewController {
     override func configureUI() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        self.navigationItem.leftBarButtonItem?.accessibilityIdentifier  =   "AddContact_Cancel"
+        self.navigationItem.rightBarButtonItem?.accessibilityIdentifier =   "AddContact_Done"
         
     }
     
@@ -111,12 +113,18 @@ class AddContactViewController: BaseViewController {
     }
     
     @IBAction func uploadImageButtonTapped(_ sender: Any) {
-        ImagePicker(controller: self).intializePicker()
+        let picker = ImagePicker(controller: self)
+        picker.intializePicker()
+        
+        picker.didImageSelected = { (image) in
+            
+        }
+        
     }
     
 
     deinit {
-        
+        print("AddContactViewController - deinit")
     }
 }
 

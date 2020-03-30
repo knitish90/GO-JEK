@@ -10,18 +10,17 @@ import Foundation
 
 
 protocol AddContactViewModelProtocol : ContactDataBaseProtocol {
-    init(service : ContactServiceProtocol)
     func viewDidLoad()
     func addContact()
     
-    var didLoadingFailed : ((_ error : Error?) -> Void)? { get set}
+    var didLoadingFailed : ((_ error : Errors?) -> Void)? { get set}
     var didLoadingSuccess : (()-> Void)? { get set}
 }
 
 class AddContactViewModel : BaseContactModel, AddContactViewModelProtocol{
     var contactService : ContactServiceProtocol
     
-    var didLoadingFailed : ((_ error : Error?) -> Void)?
+    var didLoadingFailed : ((_ error : Errors?) -> Void)?
     var didLoadingSuccess : (()-> Void)?
     
     required init(service: ContactServiceProtocol) {

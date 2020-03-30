@@ -10,6 +10,13 @@ import UIKit
 
 class EditContactViewController: AddContactViewController {
 
+    @IBOutlet weak private var firstNameField: UITextField!
+    @IBOutlet weak private var profileImgView: UIImageView!
+    @IBOutlet weak private var lastNameField: UITextField!
+    @IBOutlet weak private var mobileNameField: UITextField!
+    @IBOutlet weak private var emailField: UITextField!
+    
+    
     var editViewModel : EditContactVieModelProtocol!
     var contactDetailViewModel : ContactDetailViewModelProtocol!
     
@@ -21,20 +28,21 @@ class EditContactViewController: AddContactViewController {
     }
     
     func updateUI() {
-        firstNameTextField.text =   contactDetailViewModel.firstName
-        lastNameTextField.text  =   contactDetailViewModel.lastName
-        mobileTextField.text    =   contactDetailViewModel.phone
-        emailTextField.text     =   contactDetailViewModel.emailId
-        profileImageView.setImage(with: contactDetailViewModel.profileUrl)
+        firstNameField.text     =   contactDetailViewModel.firstName
+        lastNameField.text      =   contactDetailViewModel.lastName
+        mobileNameField.text    =   contactDetailViewModel.phone
+        emailField.text         =   contactDetailViewModel.emailId
+        profileImgView.setImage(with: contactDetailViewModel.profileUrl)
     }
     
     override func doneButtonTapped() {
         
         editViewModel.id            =   contactDetailViewModel.id
-        editViewModel.firstName     =   firstNameTextField.text ?? ""
-        editViewModel.lastName      =   lastNameTextField.text ?? ""
-        editViewModel.phone         =   mobileTextField.text ?? ""
-        editViewModel.emailId       =   emailTextField.text ?? ""
+        editViewModel.firstName     =   firstNameField.text ?? ""
+        editViewModel.lastName      =   lastNameField.text ?? ""
+        editViewModel.phone         =   mobileNameField.text ?? ""
+        editViewModel.emailId       =   emailField.text ?? ""
+        editViewModel.isFavourite   =   contactDetailViewModel.isFavourite
         editViewModel.profileUrl    =   ""
         
         self.view.showLoader()
@@ -43,7 +51,7 @@ class EditContactViewController: AddContactViewController {
         editViewModel.didLoadingSuccess = {
             self.view.hideLoader()
             
-            NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotifificationName.NewContactAdded), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.NotifificationName.ContactEdited), object: nil)
             self.delegate?.navigateToPreviousPage()
         }
         

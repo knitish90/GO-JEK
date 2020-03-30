@@ -10,21 +10,20 @@ import Foundation
 
 
 protocol ContactListViewModelProtocol {
-    init(service : ContactServiceProtocol)
-    func viewDidLoad()
+    var numberOfSections : Int { get }
+    var sectionIndexTitles : [String] {get}
+    var didContactsFailed : ((_ error: Errors?)->Void)? { get set }
     var didContactsLoaded : (()->Void)? { get set }
-    var didContactsFailed : ((_ error: Error?)->Void)? { get set }
     func numberOfItemIn(Section sectionIndex : Int)-> Int
-    func numberOfSections() -> Int
     func titleForSection(Section SectionIndex : Int)->String
     func cellViewModel(for indexPath : IndexPath) -> ContactListCellViewModel
-    var sectionIndexTitles : [String] {get}
+    func viewDidLoad()
 }
 
 
 class ContactListViewModel : ContactListViewModelProtocol {
     
-    var didContactsFailed: ((Error?) -> Void)?
+    var didContactsFailed: ((Errors?) -> Void)?
     var didContactsLoaded: (() -> Void)?
     
     var service : ContactServiceProtocol
@@ -35,12 +34,14 @@ class ContactListViewModel : ContactListViewModelProtocol {
         didSet {
             self.prepareDataSource()
             sections = self.prepareSections()
-            self.didContactsLoaded?()
-           
         }
     }
     
-    required init(service: ContactServiceProtocol) {
+    var numberOfSections : Int {
+        self.sections.count
+    }
+    
+    init(service: ContactServiceProtocol) {
         self.service = service
     }
     
@@ -57,15 +58,12 @@ class ContactListViewModel : ContactListViewModelProtocol {
     }
     
     func numberOfItemIn(Section sectionIndex : Int)-> Int {
-        return self.sections[sectionIndex].contacts.count
+        self.sections[sectionIndex].contacts.count
     }
     
-    func numberOfSections() -> Int {
-        return self.sections.count
-    }
-    
+   
     func titleForSection(Section SectionIndex : Int)->String {
-        return self.sections[SectionIndex].title
+        self.sections[SectionIndex].title
     }
     
     func cellViewModel(for indexPath : IndexPath) -> ContactListCellViewModel {

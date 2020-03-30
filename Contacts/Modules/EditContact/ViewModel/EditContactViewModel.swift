@@ -9,15 +9,14 @@
 import Foundation
 
 protocol EditContactVieModelProtocol : ContactDataBaseProtocol {
-    init(service : ContactServiceProtocol)
     func editContact()
-    var didLoadingFailed : ((_ error : Error?) -> Void)? { get set}
+    var didLoadingFailed : ((_ error : Errors?) -> Void)? { get set}
     var didLoadingSuccess : (()-> Void)? { get set}
 }
 class EditContactViewModel : BaseContactModel, EditContactVieModelProtocol {
     var contactService : ContactServiceProtocol
     
-    var didLoadingFailed : ((_ error : Error?) -> Void)?
+    var didLoadingFailed : ((_ error : Errors?) -> Void)?
     var didLoadingSuccess : (()-> Void)?
     
     required init(service: ContactServiceProtocol) {
