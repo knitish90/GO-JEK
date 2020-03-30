@@ -10,7 +10,7 @@ import UIKit
 
 class AddContactViewController: BaseViewController {
 
-    @IBOutlet weak private var scrollView: UIScrollView! 
+    @IBOutlet weak private var scrollView: UIScrollView!
     @IBOutlet weak private var lastNameTextField: UITextField!
     @IBOutlet weak private var firstNameTextField: UITextField!
     @IBOutlet weak private var mobileTextField: UITextField!
@@ -113,13 +113,9 @@ class AddContactViewController: BaseViewController {
     }
     
     @IBAction func uploadImageButtonTapped(_ sender: Any) {
-        let picker = ImagePicker(controller: self)
-        picker.intializePicker()
-        
-        picker.didImageSelected = { (image) in
-            
-        }
-        
+        let imageController         =   UIImagePickerController()
+        imageController.delegate    =   self
+        ImagePicker(controller: self, pickerController: imageController).intializePicker()
     }
     
 
@@ -138,9 +134,24 @@ extension AddContactViewController : UITextFieldDelegate {
                 return false
             }
             let newLength = currentCharacterCount + string.count - range.length
-            
             return newLength <= 10
         }
         return true
     }
 }
+
+extension AddContactViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController,
+                                      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        self.dismiss(animated: true, completion: {
+            if let image = info[.editedImage] as? UIImage {
+                self.profileImageView.image  =   image
+            }
+        })
+    }
+}
+

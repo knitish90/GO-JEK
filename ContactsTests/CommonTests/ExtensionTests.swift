@@ -65,4 +65,16 @@ class ExtensionTests: XCTestCase {
         
         XCTAssertNotNil(formatter)
     }
+    
+    func testViewExtension() {
+        let dummyView = UIView()
+        
+        dummyView.corner_Radius =   1.0
+        dummyView.border_Width  =   1.0
+        dummyView.border_Color  =   .white
+        
+        XCTAssertEqual(dummyView.corner_Radius, 1.0)
+        XCTAssertEqual(dummyView.border_Width, 1.0)
+        XCTAssertEqual(dummyView.border_Color, UIColor.white)
+    }
 }

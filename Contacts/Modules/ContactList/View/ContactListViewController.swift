@@ -43,7 +43,7 @@ class ContactListViewController: BaseViewController {
         setHeaderTitle()
     }
     
-    func setHeaderTitle() {
+    private func setHeaderTitle() {
         self.title =   "Contacts"
     }
     

@@ -22,7 +22,7 @@ extension UIView {
         strLabel.font = .systemFont(ofSize: 14, weight: .medium)
         strLabel.textColor = UIColor(white: 1.0, alpha: 0.8)
         
-        let effectView  =   UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        let effectView  =   UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterialDark))
         effectView.frame = CGRect(x: self.frame.midX - strLabel.frame.width/2, y: self.frame.midY - strLabel.frame.height/2 , width: loaderWidth, height: loaderHeight)
         effectView.layer.cornerRadius = 10
         effectView.layer.masksToBounds = true

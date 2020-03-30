@@ -18,8 +18,8 @@ class MockedContactService : ContactService {
         super.init(httpClient: HTTPClient())
     }
     
-    required init(httpClient: HTTPClientProtocol) {
-        super.init(httpClient: httpClient)
+    required init(httpClient: HTTPClientProtocol, handler: ResponseHandler = ResponseHandler()) {
+        super.init(httpClient: httpClient, handler: handler)
     }
     
     override func getContacts(completion: @escaping (Errors?, [Contact]) -> Void) {
@@ -29,20 +29,22 @@ class MockedContactService : ContactService {
     }
     
     override func updateContact(_ contact: Contact, _ completion: @escaping (Errors?, Contact?) -> Void) {
-        ResponseHandler().parseResponse(contact.encode(), nil) { (contact, error) in
+        responseHandler.parseResponse(contact.encode(), nil) { (contact, error) in
             completion(error,contact)
         }
     }
     
     override func addContact(_ contact: Contact, _ completion: @escaping (Errors?, Contact?) -> Void) {
-        ResponseHandler().parseResponse(contact.encode(), nil) { (contact, error) in
+        responseHandler.parseResponse(contact.encode(), nil) { (contact, error) in
             completion(error,contact)
         }
     }
     
     override func contactDetails(contactId: Int, completion: @escaping (Errors?, Contact?) -> Void) {
-        ResponseHandler().parseResponse(responseString?.data(using: .utf8), nil) { (contact, error) in
+        responseHandler.parseResponse(responseString?.data(using: .utf8), nil) { (contact, error) in
             completion(error, contact)
         }
     }
+    
+    
 }

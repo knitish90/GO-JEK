@@ -24,7 +24,7 @@ class EditContactViewModelTest: XCTestCase {
     }
 
  
-    func testUpdateContactSuccess() {
+    func testUpdateContact_Success() {
         let service     =   MockedContactService(contactString: nil)
         let viewModel   =   EditContactViewModel(service: service)
         
@@ -42,7 +42,7 @@ class EditContactViewModelTest: XCTestCase {
         XCTAssertEqual(viewModel.isFavourite, true)
     }
     
-    func testUpdateContactError() {
+    func testUpdateContact_Error() {
         let service     =   MockedContactService(contactString: nil)
         let viewModel   =   EditContactViewModel(service: service)
         

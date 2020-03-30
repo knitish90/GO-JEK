@@ -21,16 +21,13 @@ open class ImagePicker : NSObject {
     var didImageSelected : ((UIImage?)->Void)?
     weak var delegate : ImagePickerDelegate?
     
-    init(controller : UIViewController) {
+    init(controller : UIViewController, pickerController : UIImagePickerController) {
         self.presentatingController =   controller
-        pickerController    =   UIImagePickerController()
-        
+        self.pickerController       =   pickerController
         super.init()
-
-        self.pickerController.delegate      =   self
+        
         self.pickerController.allowsEditing =   true
         self.pickerController.mediaTypes    =   ["public.image"]
-        
     }
     
     func intializePicker() {
@@ -61,25 +58,3 @@ open class ImagePicker : NSObject {
         }
     }
 }
-
-
-extension ImagePicker : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.didImageSelected?(nil)
-    }
-    
-    
-    public func imagePickerController(_ picker: UIImagePickerController,
-                                      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        
-        
-        self.presentatingController?.dismiss(animated: true, completion: {
-            if let image = info[.editedImage] as? UIImage {
-                self.didImageSelected?(image)
-            }else {
-                self.didImageSelected?(nil)
-            }
-        })
-    }
-}
-

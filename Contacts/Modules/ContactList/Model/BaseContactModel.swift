@@ -18,9 +18,13 @@ protocol ContactDataBaseProtocol {
     var isFavourite :   Bool {get set}
     var emailId     :   String {get set}
     var phone       :   String {get set}
+    var createdAt   :   String  { get set}
+    var updatedAt   :   String  { get set}
 }
 
 class BaseContactModel : ContactDataBaseProtocol{
+    
+    
     var contact : Contact
     var id: Int {
         get {
@@ -90,6 +94,23 @@ class BaseContactModel : ContactDataBaseProtocol{
         }
     }
     
+    var createdAt: String {
+        get {
+            self.contact.createdAt
+        }
+        set {
+            self.contact.createdAt  =   newValue
+        }
+    }
+    
+    var updatedAt: String {
+        get {
+            self.contact.updatedAt
+        }
+        set {
+            self.contact.updatedAt  =   newValue
+        }
+    }
     
     init(contact : Contact) {
         self.contact    =   contact

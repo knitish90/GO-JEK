@@ -27,7 +27,7 @@ class EditContactViewController: AddContactViewController {
         updateUI()
     }
     
-    func updateUI() {
+    private func updateUI() {
         firstNameField.text     =   contactDetailViewModel.firstName
         lastNameField.text      =   contactDetailViewModel.lastName
         mobileNameField.text    =   contactDetailViewModel.phone
@@ -37,6 +37,21 @@ class EditContactViewController: AddContactViewController {
     
     override func doneButtonTapped() {
         
+        let validator = Validator()
+        if validator.validate(text: firstNameField.text, with: [.notEmpty]) != nil {
+            self.showAlert(Constants.ValidationError.firstNameEmptyError)
+        }else if validator.validate(text: lastNameField.text, with: [.notEmpty]) != nil {
+            self.showAlert(Constants.ValidationError.lastNameEmptyError)
+        }else if let message = validator.validate(text: mobileNameField.text, with: [.validPhone]) {
+            self.showAlert(message)
+        }else if let message = validator.validate(text: emailField.text, with: [.validEmail]) {
+            self.showAlert(message)
+        }else {
+            addContact()
+        }        
+    }
+    
+    override func addContact() {
         editViewModel.id            =   contactDetailViewModel.id
         editViewModel.firstName     =   firstNameField.text ?? ""
         editViewModel.lastName      =   lastNameField.text ?? ""
@@ -60,7 +75,6 @@ class EditContactViewController: AddContactViewController {
             self.showAlert(error?.localizedDescription)
         }
     }
-    
     deinit {
         print("Editcontactviewcontroller - deinit")
     }

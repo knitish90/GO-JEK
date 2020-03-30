@@ -17,7 +17,7 @@ protocol Coordinator : class {
 }
 
 protocol ContactListCoordinatorDelegate: class {
-    func navigateToContactDetailPage(contact : ContactListCellViewModel)
+    func navigateToContactDetailPage(contact : ContactListCellViewModelProtocol)
     func navigateToAddContactPage()
 }
 
@@ -25,7 +25,7 @@ protocol ContactListCoordinatorDelegate: class {
 
 class ContactListCoordinator : Coordinator {
     var childCoordinators: [Coordinator] = []
-    unowned let navigationController:UINavigationController
+    let navigationController:UINavigationController
     
     required init(navigationController: UINavigationController) {
         self.navigationController   =   navigationController
@@ -48,7 +48,7 @@ extension ContactListCoordinator : ContactListCoordinatorDelegate {
         coordinator.start()
     }
     
-    func navigateToContactDetailPage(contact: ContactListCellViewModel) {
+    func navigateToContactDetailPage(contact: ContactListCellViewModelProtocol) {
         let coordinator = ContactDetailCoordinator(navigationController: navigationController)
         coordinator.contact =   contact
         childCoordinators.append(coordinator)

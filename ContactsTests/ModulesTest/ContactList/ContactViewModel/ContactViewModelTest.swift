@@ -64,7 +64,7 @@ class ContactViewModelTest: XCTestCase {
         XCTAssert(viewModel.numberOfSections > 0)
     }
     
-    func testContactViewModelProperties() {
+    func testContactViewModel_Properties() {
         let contactService = MockedContactService(contactString: testContactsJson)
         let viewModel = ContactListViewModel(service: contactService)
         

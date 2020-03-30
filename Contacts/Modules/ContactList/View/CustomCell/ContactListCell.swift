@@ -14,13 +14,13 @@ class ContactListCell: CustomBaseCell {
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var favouriteButton: UIButton!
     
-    typealias T = ContactListCellViewModel
+    typealias T = ContactListCellViewModelProtocol
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    func configure(cellViewModel: ContactListCellViewModel) {
+    func configure(cellViewModel: ContactListCellViewModelProtocol) {
         nameLabel.text  =   cellViewModel.fullName
         favouriteButton.isSelected  =   cellViewModel.isFavourite
         profileImageView.setImage(with: cellViewModel.profileUrl)

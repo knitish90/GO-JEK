@@ -8,8 +8,13 @@
 
 import Foundation
 
+protocol ContactListCellViewModelProtocol : ContactDataBaseProtocol {
+    
+}
 
-struct ContactListCellViewModel : ContactDataBaseProtocol {
+
+struct ContactListCellViewModel : ContactListCellViewModelProtocol {
+    
     var id: Int
     var fullName: String
     var profileUrl: String
@@ -18,6 +23,8 @@ struct ContactListCellViewModel : ContactDataBaseProtocol {
     var lastName: String
     var emailId: String
     var phone: String
+    var createdAt: String
+    var updatedAt: String
     
     init(contact : Contact) {
         self.id             =   contact.id
@@ -28,6 +35,8 @@ struct ContactListCellViewModel : ContactDataBaseProtocol {
         self.phone          =   contact.phoneNumber
         self.firstName      =   contact.firstName
         self.lastName       =   contact.lastName
+        self.createdAt      =   contact.createdAt
+        self.updatedAt      =   contact.updatedAt
     }
     
 }

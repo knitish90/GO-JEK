@@ -41,7 +41,6 @@ struct Contact: Codable {
         case updatedAt  =   "updated_at"
     }
     
-    
     init(from decoder: Decoder) throws {
         let container       =   try decoder.container(keyedBy: CodingKeys.self)
         self.id             =   try container.parse(with: .id, Value: 0)
@@ -53,7 +52,6 @@ struct Contact: Codable {
         self.favourite      =   try container.parse(with: .favourite, Value: false)
         self.createdAt      =   try container.parse(with: .createdAt, Value: "" )
         self.updatedAt      =   try container.parse(with: .updatedAt, Value: "")
-        
     }
     
     init() {

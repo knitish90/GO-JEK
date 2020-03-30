@@ -56,4 +56,21 @@ class ContactDetailTests: XCTestCase {
         XCTAssertNotEqual(viewModel.lastName, "Kumar")
         XCTAssertNotEqual(viewModel.isFavourite, true)
     }
+    
+    func testMarkFavourite_Success() {
+        
+        let contactService = MockedContactService(contactString: testContactsDetailJson)
+        let viewModel = ContactDetailViewModel(contactId: 1, service: contactService)
+        
+        viewModel.isFavourite   =   !viewModel.isFavourite
+        viewModel.makeFavourite()
+        
+        viewModel.didLoadingSuccess = {
+            self.expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        XCTAssertEqual(viewModel.isFavourite, true)
+    }
 }

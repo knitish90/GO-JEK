@@ -9,7 +9,6 @@
 import Foundation
 
 protocol ContactServiceProtocol {
-    init(httpClient : HTTPClientProtocol)
     func getContacts(completion : @escaping (Errors?, [Contact]) -> Void)
     func contactDetails(contactId : Int, completion : @escaping (Errors?, Contact?)->Void)
     func addContact(_ contact: Contact, _ completion : @escaping (_ error: Errors?, _ contact : Contact?) -> Void)
@@ -20,14 +19,16 @@ protocol ContactServiceProtocol {
 class ContactService : ContactServiceProtocol {
     
     var httpClient : HTTPClientProtocol
+    var responseHandler : ResponseHandler!
     
-    required init(httpClient : HTTPClientProtocol) {
-        self.httpClient  =   httpClient
+    required init(httpClient : HTTPClientProtocol, handler : ResponseHandler = ResponseHandler()) {
+        self.httpClient         =   httpClient
+        self.responseHandler    =   handler
     }
     
     func getContacts(completion: @escaping (Errors?, [Contact]) -> Void) {
         httpClient.getData(urlString: EndPoint.Contacts.getContacts) { (data, error) in
-            ResponseHandler().parseResponse(data, error) { (contactList, error) in
+            self.responseHandler.parseResponse(data, error) { (contactList, error) in
                 completion(error,contactList ?? [])
             }
         }
@@ -37,7 +38,7 @@ class ContactService : ContactServiceProtocol {
         let urlString = EndPoint.Contacts.contactDetails.replace(of: "{contactId}", with: "\(contactId)")
                 
         httpClient.getData(urlString: urlString) { (data, error) in
-            ResponseHandler().parseResponse(data, error) { (contact, error) in
+            self.responseHandler.parseResponse(data, error) { (contact, error) in
                 completion(error, contact)
             }
         }
@@ -46,7 +47,7 @@ class ContactService : ContactServiceProtocol {
     func addContact(_ contact: Contact, _ completion : @escaping (_ error: Errors?, _ contact : Contact?) -> Void) {
         let urlString = EndPoint.Contacts.addContacts
         httpClient.postData(urlString: urlString, body: contact.encode()) { (data, error) in
-            ResponseHandler().parseResponse(data, error) { (contact, error) in
+            self.responseHandler.parseResponse(data, error) { (contact, error) in
                 completion(error, contact)
             }
         }
@@ -55,7 +56,7 @@ class ContactService : ContactServiceProtocol {
     func updateContact(_ contact: Contact, _ completion : @escaping (_ error: Errors?, _ contact : Contact?) -> Void) {
         let urlString = EndPoint.Contacts.contactDetails.replace(of: "{contactId}", with: "\(contact.id)")
         httpClient.updateData(urlString: urlString, body: contact.encode()) { (data, error) in
-            ResponseHandler().parseResponse(data, error) { (contact, error) in
+            self.responseHandler.parseResponse(data, error) { (contact, error) in
                 completion(error, contact)
             }
         }

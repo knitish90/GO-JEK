@@ -11,6 +11,13 @@ import Foundation
 typealias networkCompletion = ((_ data : Data?, _ error : Errors?)-> Void)
 typealias Params = [String: String]
 
+enum HTTPMethod: String {
+    case GET    =   "GET"
+    case POST   =   "POST"
+    case PUT    =   "PUT"
+    case DELETE =   "DELETE"
+}
+
 
 protocol HTTPClientProtocol {
     func getData(urlString : String, completion : @escaping networkCompletion)

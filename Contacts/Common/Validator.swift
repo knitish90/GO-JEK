@@ -19,20 +19,20 @@ struct Rule {
     let check: (String) -> String?
 
     static let notEmpty = Rule(check: {
-        $0.isEmpty ? "Must not be empty" : nil
+        $0.isEmpty ? "field can't be empty" : nil
     })
 
     static let validEmail = Rule(check: {
-        let regex = #"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}"#
+        let emailRegex = #"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}"#
 
-        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return predicate.evaluate(with: $0) ? nil : Constants.ValidationError.invalidEmailError
     })
 
     static let validPhone = Rule(check: {
-        let regex = "^\\d{10}$"
+        let phoneRegex = "^\\d{10}$"
 
-        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        let predicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
         return predicate.evaluate(with: $0) ? nil : Constants.ValidationError.invalidPhoneError
     })
 }

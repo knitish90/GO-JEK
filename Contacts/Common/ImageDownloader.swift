@@ -15,13 +15,13 @@ class imageDownloader {
     
     static var handler : imageComletion!
 
-    static let imageCache = NSCache<NSString, UIImage>()
+    static let imageCache  = NSCache<NSString, UIImage>()
     static let operationQueue = OperationQueue()
     
-    class func downloadImage(imageUrl : String , indexPath : IndexPath?  = nil, handler : @escaping imageComletion) {
+    class func downloadImage(imageURL : String, handler : @escaping imageComletion) {
         self.handler    =   handler
         
-        guard let url = URL(string: imageUrl) else {
+        guard let url = URL(string: imageURL) else {
             return self.handler(nil, Errors(message: Constants.NetworkError.inValidURLError))
         }
         
@@ -31,12 +31,11 @@ class imageDownloader {
             let operation = BlockOperation()
             operation.addExecutionBlock {
                 do {
-                    let data = try Data(contentsOf: url)
-                    if let image = UIImage(data: data) {
-                        imageCache.setObject(image, forKey: "\(imageUrl)" as NSString)
-                        handler(image,nil)
+                    let imageData = try Data(contentsOf: url)
+                    if let downloadedImage = UIImage(data: imageData) {
+                        imageCache.setObject(downloadedImage, forKey: "\(imageURL)" as NSString)
+                        handler(downloadedImage,nil)
                     }
-                    
                 } catch {
                     return self.handler(nil, Errors(message: Constants.NetworkError.inValidURLError))
                 }

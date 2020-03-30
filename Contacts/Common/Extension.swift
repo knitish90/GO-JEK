@@ -27,8 +27,8 @@ extension String {
 
 
 extension UIImageView {
-    func setImage(with imageUrl : String, indexPath : IndexPath? = nil) {
-        imageDownloader.downloadImage(imageUrl: imageUrl, indexPath: indexPath) { (image, error) in
+    func setImage(with imageUrl : String) {
+        imageDownloader.downloadImage(imageURL: imageUrl) { (image, error) in
             DispatchQueue.main.async {
                 self.image = image
             }

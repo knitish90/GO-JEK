@@ -88,4 +88,25 @@ class ContactServiceTests: XCTestCase {
         XCTAssertTrue(contact?.firstName == nil)
         XCTAssertTrue(contact?.lastName == nil)       
     }
+    
+    func testSaveContact_Success() {
+        let client = MockedHTTPClient(mockedData: testContactsDetailJson, error: nil)
+        let contactService = ContactService(httpClient: client)
+        
+        var contact : Contact?
+        
+        contactService.contactDetails(contactId: 1) { (error, value) in
+            contact =   value
+            self.expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertTrue(contact != nil)
+        XCTAssertTrue(contact?.firstName != nil)
+        XCTAssertTrue(contact?.lastName != nil)
+        
+        XCTAssertEqual(contact!.firstName, "Nitish")
+        XCTAssertEqual(contact!.lastName, "Kumar")
+        XCTAssertEqual(contact!.favourite, true)
+    }
 }
